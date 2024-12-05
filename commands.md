@@ -23,3 +23,7 @@ python scripts/db_connection_check.py
 python scripts/collect_data.py
 
 python scripts/test_env.py
+
+# Documentation
+
+{base_url}/api/docs

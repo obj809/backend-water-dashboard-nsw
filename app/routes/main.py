@@ -1,10 +1,11 @@
 # app/routes/main.py
 
-from flask import Blueprint
+from flask_restx import Namespace, Resource
 
-# Define the Blueprint with a unique name
-main_bp = Blueprint('main_bp', __name__)
+main_bp = Namespace('Main', description='Main route for the application')
 
 @main_bp.route('/')
-def home():
-    return "Welcome to your Flask App!"
+class Home(Resource):
+    def get(self):
+        """Welcome route"""
+        return "Welcome to your Flask App!"

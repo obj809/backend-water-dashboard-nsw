@@ -1,35 +1,41 @@
 # app/routes/latest_data.py
 
-from flask import Blueprint, jsonify, abort
+from flask_restx import Namespace, Resource, fields
 from ..models import LatestData
 from .. import db
 
-latest_data_bp = Blueprint('latest_data_bp', __name__, url_prefix='/api/latest_data')
+latest_data_bp = Namespace('LatestData', description='Endpoints for managing latest dam data')
 
-@latest_data_bp.route('/', methods=['GET'])
-def get_latest_data():
-    data_entries = LatestData.query.all()
-    return jsonify([{
-        'dam_id': entry.dam_id,
-        'dam_name': entry.dam_name,
-        'date': entry.date.isoformat(),
-        'storage_volume': float(entry.storage_volume) if entry.storage_volume else None,
-        'percentage_full': float(entry.percentage_full) if entry.percentage_full else None,
-        'storage_inflow': float(entry.storage_inflow) if entry.storage_inflow else None,
-        'storage_release': float(entry.storage_release) if entry.storage_release else None
-    } for entry in data_entries])
+# Define a model for latest dam data
+latest_data_model = latest_data_bp.model('LatestData', {
+    'dam_id': fields.String(required=True, description='The ID of the dam'),
+    'dam_name': fields.String(required=True, description='The name of the dam'),
+    'date': fields.String(required=True, description='The date of the latest data entry in ISO format'),
+    'storage_volume': fields.Float(description='The storage volume'),
+    'percentage_full': fields.Float(description='The percentage of the dam that is full'),
+    'storage_inflow': fields.Float(description='The inflow to the dam'),
+    'storage_release': fields.Float(description='The release from the dam'),
+})
 
-@latest_data_bp.route('/<string:dam_id>', methods=['GET'])
-def get_latest_data_by_dam(dam_id):
-    data = LatestData.query.get(dam_id)
-    if not data:
-        abort(404, description="Latest data for the specified dam not found.")
-    return jsonify({
-        'dam_id': data.dam_id,
-        'dam_name': data.dam_name,
-        'date': data.date.isoformat(),
-        'storage_volume': float(data.storage_volume) if data.storage_volume else None,
-        'percentage_full': float(data.percentage_full) if data.percentage_full else None,
-        'storage_inflow': float(data.storage_inflow) if data.storage_inflow else None,
-        'storage_release': float(data.storage_release) if data.storage_release else None
-    })
+
+@latest_data_bp.route('/')
+class LatestDataList(Resource):
+    @latest_data_bp.doc('list_latest_data')
+    @latest_data_bp.marshal_list_with(latest_data_model)
+    def get(self):
+        """List all latest dam data entries"""
+        data_entries = LatestData.query.all()
+        return data_entries
+
+
+@latest_data_bp.route('/<string:dam_id>')
+@latest_data_bp.param('dam_id', 'The ID of the dam')
+class LatestDataDetail(Resource):
+    @latest_data_bp.doc('get_latest_data_by_dam')
+    @latest_data_bp.marshal_with(latest_data_model)
+    def get(self, dam_id):
+        """Get the latest data for a specific dam by ID"""
+        data = LatestData.query.get(dam_id)
+        if not data:
+            latest_data_bp.abort(404, "Latest data for the specified dam not found.")
+        return data
