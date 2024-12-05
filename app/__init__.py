@@ -4,8 +4,10 @@ from flask import Flask
 from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 from .config import Config
+from flask_migrate import Migrate
 
 db = SQLAlchemy()
+migrate = Migrate()
 
 def create_app():
     app = Flask(__name__)
@@ -19,9 +21,11 @@ def create_app():
 
     CORS(app)
     db.init_app(app)
+    migrate.init_app(app, db)
 
+    # Register blueprints
     from .routes import main_bp, dams_bp, latest_data_bp, dam_resources_bp, specific_dam_analysis_bp, overall_dam_analysis_bp, dam_groups_bp, dam_group_members_bp
-    app.register_blueprint(main_bp)  # Register main_bp instead of main
+    app.register_blueprint(main_bp)
     app.register_blueprint(dams_bp)
     app.register_blueprint(latest_data_bp)
     app.register_blueprint(dam_resources_bp)
@@ -31,3 +35,4 @@ def create_app():
     app.register_blueprint(dam_group_members_bp)
 
     return app
+
