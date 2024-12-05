@@ -19,3 +19,5 @@ python app.py
 # Scripts
 
 python scripts/db_connection_check.py
+
+python scripts/test_env.py

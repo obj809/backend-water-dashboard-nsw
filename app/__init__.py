@@ -1,16 +1,25 @@
 # app/__init__.py
-
 from flask import Flask
+from flask_cors import CORS
+from flask_sqlalchemy import SQLAlchemy
+from .config import Config
+
+db = SQLAlchemy()
 
 def create_app():
     app = Flask(__name__)
+    app.config.from_object(Config)
 
-    # Example: Load config from a file or environment variables
-    app.config.from_object('app.config.Config')
+    # Validate configuration
+    Config.validate()
 
-    # Register blueprints or routes
-    with app.app_context():
-        from .routes import main
-        app.register_blueprint(main)
+    # Debugging: Print SQLALCHEMY_DATABASE_URI in app config
+    print("DEBUG (create_app): SQLALCHEMY_DATABASE_URI in config:", app.config.get("SQLALCHEMY_DATABASE_URI"))
+
+    CORS(app)
+    db.init_app(app)
+
+    from .routes import main as main_blueprint
+    app.register_blueprint(main_blueprint)
 
     return app
