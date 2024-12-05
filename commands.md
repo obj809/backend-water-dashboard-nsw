@@ -13,7 +13,7 @@ pip install -r requirements.txt
 
 # Run App
 
-python app.py
+python run.py
 
 
 # Scripts

@@ -1,4 +1,5 @@
 # app/__init__.py
+
 from flask import Flask
 from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
@@ -19,7 +20,14 @@ def create_app():
     CORS(app)
     db.init_app(app)
 
-    from .routes import main as main_blueprint
-    app.register_blueprint(main_blueprint)
+    from .routes import main_bp, dams_bp, latest_data_bp, dam_resources_bp, specific_dam_analysis_bp, overall_dam_analysis_bp, dam_groups_bp, dam_group_members_bp
+    app.register_blueprint(main_bp)  # Register main_bp instead of main
+    app.register_blueprint(dams_bp)
+    app.register_blueprint(latest_data_bp)
+    app.register_blueprint(dam_resources_bp)
+    app.register_blueprint(specific_dam_analysis_bp)
+    app.register_blueprint(overall_dam_analysis_bp)
+    app.register_blueprint(dam_groups_bp)
+    app.register_blueprint(dam_group_members_bp)
 
     return app
