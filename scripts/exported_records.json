@@ -1,0 +1,111 @@
+{
+    "dam_group_members": [
+        {
+            "group_name": "small_dams",
+            "dam_id": "203042"
+        },
+        {
+            "group_name": "greatest_released",
+            "dam_id": "210097"
+        }
+    ],
+    "dam_groups": [
+        {
+            "group_name": "greatest_released"
+        },
+        {
+            "group_name": "large_dams"
+        }
+    ],
+    "dam_resources": [
+        {
+            "resource_id": 1,
+            "dam_id": "203042",
+            "date": "2023-10-01",
+            "storage_volume": 10500.0,
+            "percentage_full": 95.0,
+            "storage_inflow": 480.5,
+            "storage_release": 300.3
+        },
+        {
+            "resource_id": 2,
+            "dam_id": "203042",
+            "date": "2023-11-01",
+            "storage_volume": 10600.0,
+            "percentage_full": 96.0,
+            "storage_inflow": 500.5,
+            "storage_release": 310.3
+        }
+    ],
+    "dams": [
+        {
+            "dam_id": "203042",
+            "dam_name": "Toonumbar Dam",
+            "full_volume": 10814,
+            "latitude": -28.602383,
+            "longitude": 152.763769
+        },
+        {
+            "dam_id": "210097",
+            "dam_name": "Glenbawn Dam",
+            "full_volume": 748827,
+            "latitude": -32.064304,
+            "longitude": 150.982007
+        }
+    ],
+    "latest_data": [
+        {
+            "dam_id": "203042",
+            "dam_name": "Toonumbar Dam",
+            "date": "2024-11-25",
+            "storage_volume": 10500.0,
+            "percentage_full": 97.0,
+            "storage_inflow": 500.5,
+            "storage_release": 300.3
+        },
+        {
+            "dam_id": "210097",
+            "dam_name": "Glenbawn Dam",
+            "date": "2024-11-25",
+            "storage_volume": 730000.0,
+            "percentage_full": 97.45,
+            "storage_inflow": 2200.2,
+            "storage_release": 1600.0
+        }
+    ],
+    "overall_dam_analysis": [],
+    "specific_dam_analysis": [
+        {
+            "dam_id": "203042",
+            "analysis_date": "2024-11-01",
+            "avg_storage_volume_12_months": 10500.0,
+            "avg_storage_volume_5_years": 10300.0,
+            "avg_storage_volume_20_years": 10000.0,
+            "avg_percentage_full_12_months": 97.0,
+            "avg_percentage_full_5_years": 95.0,
+            "avg_percentage_full_20_years": 93.0,
+            "avg_storage_inflow_12_months": 500.5,
+            "avg_storage_inflow_5_years": 480.5,
+            "avg_storage_inflow_20_years": 460.5,
+            "avg_storage_release_12_months": 300.3,
+            "avg_storage_release_5_years": 290.3,
+            "avg_storage_release_20_years": 280.3
+        },
+        {
+            "dam_id": "210097",
+            "analysis_date": "2024-11-01",
+            "avg_storage_volume_12_months": 730000.0,
+            "avg_storage_volume_5_years": 720000.0,
+            "avg_storage_volume_20_years": 700000.0,
+            "avg_percentage_full_12_months": 97.45,
+            "avg_percentage_full_5_years": 95.0,
+            "avg_percentage_full_20_years": 93.0,
+            "avg_storage_inflow_12_months": 2200.2,
+            "avg_storage_inflow_5_years": 2100.2,
+            "avg_storage_inflow_20_years": 2000.2,
+            "avg_storage_release_12_months": 1600.0,
+            "avg_storage_release_5_years": 1500.0,
+            "avg_storage_release_20_years": 1400.0
+        }
+    ]
+}

@@ -41,8 +41,10 @@ curl -i -X GET "http://localhost:5001/api/specific_dam_analysis/203042"
 # Get all overall dam analyses
 curl -i -X GET "http://localhost:5001/api/overall_dam_analysis/"
 
+
 # Get overall dam analysis for a specific date (Example: 2023-01-01)
 curl -i -X GET "http://localhost:5001/api/overall_dam_analysis/2023-01-01"
+
 
 # Dam Groups Blueprint
 

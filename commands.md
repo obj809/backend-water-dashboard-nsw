@@ -24,6 +24,12 @@ python scripts/collect_data.py
 
 python scripts/test_env.py
 
+python scripts/export_table_records.py
+
+python scripts/insert_dam_analysis_data.py
+
+
+
 # Documentation
 
 {base_url}/api/docs
