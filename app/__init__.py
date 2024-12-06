@@ -1,3 +1,5 @@
+# app/__init__.py
+
 from flask import Flask
 from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
@@ -40,7 +42,8 @@ def create_app():
     from .routes.dam_groups import dam_groups_bp
     from .routes.dam_group_members import dam_group_members_bp
 
-    api.add_namespace(main_bp)
+    # Register namespaces with specific paths
+    api.add_namespace(main_bp, path='/api')  # Root route
     api.add_namespace(dams_bp, path='/api/dams')
     api.add_namespace(latest_data_bp, path='/api/latest_data')
     api.add_namespace(dam_resources_bp, path='/api/dam_resources')

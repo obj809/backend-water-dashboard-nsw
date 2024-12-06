@@ -8,4 +8,4 @@ main_bp = Namespace('Main', description='Main route for the application')
 class Home(Resource):
     def get(self):
         """Welcome route"""
-        return "Welcome to your Flask App!"
+        return {"message": "Welcome to the Dam Management API!"}, 200

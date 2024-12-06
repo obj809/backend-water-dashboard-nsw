@@ -3,8 +3,7 @@
 ```bash
 # Main Blueprint
 
-curl -i -X GET "http://localhost:5001/"
-
+curl -i -X GET "http://localhost:5001/api/"
 # Dams Blueprint
 
 # Get all dams
