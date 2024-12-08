@@ -33,3 +33,10 @@ python scripts/insert_dam_analysis_data.py
 # Documentation
 
 {base_url}/api/docs
+
+
+# Scripts
+
+python scripts/data_collection_and_export.py
+
+python scripts/test_api_endpoints.py

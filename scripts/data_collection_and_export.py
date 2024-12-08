@@ -1,4 +1,4 @@
-# scripts/export_table_records.py
+# scripts/data_collection_and_export.py
 
 import os
 import json
@@ -22,7 +22,8 @@ class CustomJSONEncoder(json.JSONEncoder):
             return obj.isoformat()  # Serialize date as ISO 8601 string
         return super().default(obj)
 
-def export_table_records(limit=2):
+def collect_first_ten_records():
+    """Collects the first 10 records from each table and saves to a JSON file."""
     try:
         # Create a SQLAlchemy engine
         engine = create_engine(database_uri)
@@ -41,25 +42,25 @@ def export_table_records(limit=2):
 
             results = {}
 
-            # Query records from each table
+            # Query the first 10 records from each table
             for table in tables:
-                print(f"Fetching first {limit} records from table: {table}")
-                query = text(f"SELECT * FROM {table} LIMIT :limit;")
-                result = connection.execute(query, {"limit": limit}).fetchall()
+                print(f"Fetching first 10 records from table: {table}")
+                query = text(f"SELECT * FROM {table} LIMIT 10;")
+                result = connection.execute(query).fetchall()
 
                 # Convert SQLAlchemy row objects to dictionaries
                 results[table] = [dict(row._mapping) for row in result] if result else []
 
             # Save results to a JSON file
-            output_file = os.path.join(os.path.dirname(__file__), "exported_records.json")
+            output_file = os.path.join(os.path.dirname(__file__), "first_ten_records.json")
             with open(output_file, "w") as f:
                 json.dump(results, f, indent=4, cls=CustomJSONEncoder)
 
-            print(f"Table records successfully saved to {output_file}")
+            print(f"First 10 records successfully saved to {output_file}")
 
     except Exception as e:
-        print("An error occurred while exporting records!")
+        print("An error occurred while collecting records!")
         print(f"Error: {e}")
 
 if __name__ == "__main__":
-    export_table_records(limit=2)
+    collect_first_ten_records()

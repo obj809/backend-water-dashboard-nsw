@@ -1,20 +1,20 @@
 # API Endpoints Testing Commands
 
 ```bash
-# Main Blueprint
-
+# Get a welcome message
 curl -i -X GET "http://localhost:5001/api/"
+
 # Dams Blueprint
 
 # Get all dams
 curl -i -X GET "http://localhost:5001/api/dams/"
 
-# Get specific dam (Example: 203042 - Toonumbar Dam)
+# Get a specific dam (Example: 203042 - Toonumbar Dam)
 curl -i -X GET "http://localhost:5001/api/dams/203042"
 
 # Latest Data Blueprint
 
-# Get all latest data
+# Get all latest data entries
 curl -i -X GET "http://localhost:5001/api/latest_data/"
 
 # Get latest data for a specific dam (Example: 203042 - Toonumbar Dam)
@@ -41,17 +41,15 @@ curl -i -X GET "http://localhost:5001/api/specific_dam_analysis/203042"
 # Get all overall dam analyses
 curl -i -X GET "http://localhost:5001/api/overall_dam_analysis/"
 
-
 # Get overall dam analysis for a specific date (Example: 2023-01-01)
 curl -i -X GET "http://localhost:5001/api/overall_dam_analysis/2023-01-01"
-
 
 # Dam Groups Blueprint
 
 # Get all dam groups
 curl -i -X GET "http://localhost:5001/api/dam_groups/"
 
-# Get specific dam group (Example: small_dams)
+# Get a specific dam group (Example: small_dams)
 curl -i -X GET "http://localhost:5001/api/dam_groups/small_dams"
 
 # Dam Group Members Blueprint
@@ -61,3 +59,4 @@ curl -i -X GET "http://localhost:5001/api/dam_group_members/"
 
 # Get dam group members for a specific group (Example: small_dams)
 curl -i -X GET "http://localhost:5001/api/dam_group_members/small_dams"
+```
