@@ -1,3 +1,3 @@
 # Sydney Dam Monitoring Backend
 
-![Swagger Documentation](screenshots/documentation.png)
+![Swagger Documentation](screenshots/documentation-light.png)
