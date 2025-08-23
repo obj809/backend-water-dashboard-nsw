@@ -496,43 +496,13 @@
         "url": "http://localhost:5001/api/overall_dam_analysis",
         "status_code": 200,
         "description": "List all overall dam analyses",
-        "content": [
-            {
-                "analysis_date": "2023-01-01",
-                "avg_storage_volume_12_months": 10500.0,
-                "avg_storage_volume_5_years": 11000.0,
-                "avg_storage_volume_20_years": 11500.0,
-                "avg_percentage_full_12_months": 95.0,
-                "avg_percentage_full_5_years": 93.5,
-                "avg_percentage_full_20_years": 92.0,
-                "avg_storage_inflow_12_months": 500.5,
-                "avg_storage_inflow_5_years": 510.5,
-                "avg_storage_inflow_20_years": 520.5,
-                "avg_storage_release_12_months": 300.3,
-                "avg_storage_release_5_years": 310.3,
-                "avg_storage_release_20_years": 320.3
-            }
-        ]
+        "content": []
     },
     {
         "url": "http://localhost:5001/api/overall_dam_analysis/2023-01-01",
-        "status_code": 200,
+        "status_code": 404,
         "description": "Get overall dam analysis by date",
-        "content": {
-            "analysis_date": "2023-01-01",
-            "avg_storage_volume_12_months": 10500.0,
-            "avg_storage_volume_5_years": 11000.0,
-            "avg_storage_volume_20_years": 11500.0,
-            "avg_percentage_full_12_months": 95.0,
-            "avg_percentage_full_5_years": 93.5,
-            "avg_percentage_full_20_years": 92.0,
-            "avg_storage_inflow_12_months": 500.5,
-            "avg_storage_inflow_5_years": 510.5,
-            "avg_storage_inflow_20_years": 520.5,
-            "avg_storage_release_12_months": 300.3,
-            "avg_storage_release_5_years": 310.3,
-            "avg_storage_release_20_years": 320.3
-        }
+        "content": "No data found"
     },
     {
         "url": "http://localhost:5001/api/dam_groups",
