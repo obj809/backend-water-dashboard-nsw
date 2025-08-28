@@ -1,7 +1,5 @@
 # app/routes/overall_dam_analysis.py
-#
-# Modernizes PK lookups using db.session.get via get_or_404 helper.
-# Keeps pagination for list endpoint and ISO date parsing.
+
 
 from flask_restx import Namespace, Resource, fields
 from ..models import OverallDamAnalysis
@@ -52,7 +50,6 @@ class OverallDamAnalysesList(Resource):
     @overall_dam_analysis_bp.doc('list_overall_dam_analyses')
     @overall_dam_analysis_bp.marshal_with(overall_list_envelope)
     def get(self):
-        """List all overall dam analyses (paginated)"""
         page, per_page = get_pagination_params()
         return envelope(OverallDamAnalysis.query, page, per_page, 'overall_dam_analysis_list')
 
@@ -63,7 +60,6 @@ class OverallDamAnalysisDetail(Resource):
     @overall_dam_analysis_bp.doc('get_overall_dam_analysis')
     @overall_dam_analysis_bp.marshal_with(overall_dam_analysis_model)
     def get(self, analysis_date):
-        """Get overall dam analysis by date"""
         analysis_date_obj = parse_iso_date(analysis_date)
         return get_or_404(OverallDamAnalysis, analysis_date_obj,
                           "Overall dam analysis not found for the specified date.")

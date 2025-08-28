@@ -2,10 +2,6 @@
 
 from flask import Blueprint
 
-# Remove the initialization of 'main' Blueprint
-# main = Blueprint('main', __name__)
-
-# Import all Blueprints to ensure they are registered
 from .main import main_bp
 from .dams import dams_bp
 from .latest_data import latest_data_bp

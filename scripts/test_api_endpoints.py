@@ -4,10 +4,8 @@ import requests
 import os
 import json
 
-# Base URL of the Flask API
 BASE_URL = "http://localhost:5001/api"
 
-# Endpoints to test
 ENDPOINTS = [
     {"path": "/", "method": "GET", "description": "Main welcome route"},
     {"path": "/dams", "method": "GET", "description": "List all dams"},
@@ -27,18 +25,16 @@ ENDPOINTS = [
 ]
 
 def test_endpoint(endpoint, base_url=BASE_URL):
-    """Tests an API endpoint with the given method and path."""
     path = endpoint["path"]
     method = endpoint["method"]
     description = endpoint["description"]
     sample_data = endpoint.get("sample_data", {})
 
-    # Replace placeholders in path with sample data
     for key, value in sample_data.items():
         path = path.replace(f"{{{key}}}", str(value))
 
     url = f"{base_url}{path}"
-    params = {"limit": 10} if "limit" in path or "?" in path else None  # Add limit if applicable
+    params = {"limit": 10} if "limit" in path or "?" in path else None
     print(f"Testing {method} {url} - {description}")
 
     try:
@@ -49,10 +45,9 @@ def test_endpoint(endpoint, base_url=BASE_URL):
 
         if response.status_code == 200:
             try:
-                # Try parsing JSON and limiting results to 10 if it's a list
                 content = response.json()
                 if isinstance(content, list):
-                    content = content[:10]  # Limit to 10 records if applicable
+                    content = content[:10]
                 return {"url": url, "status_code": 200, "description": description, "content": content}
             except json.JSONDecodeError:
                 return {"url": url, "status_code": 200, "description": description, "content": "Response is not valid JSON"}
@@ -75,7 +70,6 @@ def main():
         result = test_endpoint(endpoint)
         results.append(result)
 
-    # Save results to a JSON file
     output_file = os.path.join(os.path.dirname(__file__), "api_test_results.json")
     with open(output_file, "w") as f:
         json.dump(results, f, indent=4)

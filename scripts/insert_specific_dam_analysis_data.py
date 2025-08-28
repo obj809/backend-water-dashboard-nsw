@@ -8,36 +8,21 @@ from typing import Optional, Mapping, Any
 from sqlalchemy import create_engine, text
 from dotenv import load_dotenv
 
-# Load environment variables from the .env file (same as your other script)
 load_dotenv(dotenv_path=os.path.join(os.path.dirname(__file__), '..', '.env'))
 
-# Fetch database URI from environment variables
 database_uri = os.getenv("SQLALCHEMY_DATABASE_URI")
 
-# Set up logging configuration (same formatting)
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 logger = logging.getLogger()
 
 def insert_specific_dam_analysis_data(analysis_date: Optional[date] = None):
-    """
-    Seed/refresh the `specific_dam_analysis` table for every dam_id.
 
-    - For each dam in `dams`, compute averages over the last:
-        * 12 months
-        * 5 years (60 months)
-        * 20 years (240 months)
-      using the `dam_resources` table.
-    - If a given window has no rows, fall back to `latest_data` for that dam.
-    - Upsert one row per (dam_id, analysis_date) using MySQL
-      ON DUPLICATE KEY UPDATE (table PK is (dam_id, analysis_date)).
-    """
     try:
         if analysis_date is None:
             analysis_date = date.today()
 
         engine = create_engine(database_uri)
 
-        # Helper to build window-avg SQL; INTERVAL must be literal
         def avg_window_sql(months: int):
             return text(f"""
                 SELECT
@@ -112,7 +97,6 @@ def insert_specific_dam_analysis_data(analysis_date: Optional[date] = None):
         with engine.connect() as connection:
             logger.info("Database connection successful!")
 
-            # Get all dam_ids (use scalars() so we get a list of strings)
             dam_ids = connection.execute(text("SELECT dam_id FROM dams")).scalars().all()
             if not dam_ids:
                 logger.info("No dams found. Exiting.")
@@ -123,7 +107,6 @@ def insert_specific_dam_analysis_data(analysis_date: Optional[date] = None):
                 len(dam_ids), analysis_date.isoformat()
             )
 
-            # Small helper: safely pick value or fallback from `latest`
             def pick(primary_val: Any, latest_row: Optional[Mapping[str, Any]], latest_key: str):
                 if primary_val is not None:
                     return primary_val
@@ -132,13 +115,11 @@ def insert_specific_dam_analysis_data(analysis_date: Optional[date] = None):
                 return latest_row.get(latest_key)
 
             for idx, dam_id in enumerate(dam_ids, start=1):
-                # Fetch mapping rows so we can use dict-like access
                 row_12  = connection.execute(avg_window_sql(12),  {"dam_id": dam_id}).mappings().fetchone()
                 row_60  = connection.execute(avg_window_sql(60),  {"dam_id": dam_id}).mappings().fetchone()
                 row_240 = connection.execute(avg_window_sql(240), {"dam_id": dam_id}).mappings().fetchone()
                 latest  = connection.execute(latest_sql, {"dam_id": dam_id}).mappings().fetchone()
 
-                # Extract values (row_* may be None or fields may be None)
                 avg_vol_12  = row_12["avg_storage_volume"]   if row_12  else None
                 avg_vol_60  = row_60["avg_storage_volume"]   if row_60  else None
                 avg_vol_240 = row_240["avg_storage_volume"]  if row_240 else None

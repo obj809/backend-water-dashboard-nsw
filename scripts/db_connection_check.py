@@ -4,10 +4,8 @@ import os
 from sqlalchemy import create_engine, text, inspect
 from dotenv import load_dotenv
 
-# Load environment variables from .env file
 load_dotenv()
 
-# Fetch environment variables
 database_uri = os.getenv("SQLALCHEMY_DATABASE_URI")
 db_user = os.getenv("DB_USER")
 db_password = os.getenv("DB_PASSWORD")
@@ -26,19 +24,15 @@ def print_env_variables():
 
 def check_db_connection_and_tables():
     try:
-        # Create a SQLAlchemy engine
         engine = create_engine(database_uri)
         
-        # Connect to the database
         with engine.connect() as connection:
             print("Database connection successful!")
 
-            # Get the current database name
             result = connection.execute(text("SELECT DATABASE();"))
             current_db = result.fetchone()[0]
             print(f"Connected to database: {current_db}")
 
-            # Inspect the database to list all tables
             inspector = inspect(engine)
             tables = inspector.get_table_names()
 
@@ -48,7 +42,6 @@ def check_db_connection_and_tables():
 
             print(f"Tables in the database: {', '.join(tables)}")
             
-            # Query and print a result from each table
             for table in tables:
                 print(f"\nFetching data from table: {table}")
                 query = text(f"SELECT * FROM {table} LIMIT 1;")

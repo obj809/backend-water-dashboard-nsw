@@ -1,7 +1,4 @@
 # app/routes/dams.py
-#
-# Modernizes PK lookups using db.session.get via get_or_404 helper.
-# Keeps pagination for list endpoint.
 
 from flask_restx import Namespace, Resource, fields
 from ..models import Dam
@@ -43,9 +40,8 @@ class DamsList(Resource):
     @dams_bp.doc('list_dams')
     @dams_bp.marshal_with(dam_list_envelope)
     def get(self):
-        """List all dams (paginated)"""
         page, per_page = get_pagination_params()
-        from ..models import Dam  # local import not necessary, but explicit for clarity
+        from ..models import Dam
         return envelope(Dam.query, page, per_page, 'dams_list')
 
 
@@ -55,6 +51,5 @@ class DamDetail(Resource):
     @dams_bp.doc('get_dam')
     @dams_bp.marshal_with(dam_model)
     def get(self, dam_id):
-        """Get a dam by ID"""
         dam = get_or_404(Dam, dam_id, "Dam not found.")
         return dam

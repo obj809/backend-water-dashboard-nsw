@@ -12,7 +12,6 @@ migrate = Migrate()
 def create_app():
     app = Flask(__name__)
 
-    # Make sure config is fresh and valid, then load it
     Config.refresh_from_env()
     Config.validate()
     app.config.from_object(Config)
@@ -23,7 +22,6 @@ def create_app():
     db.init_app(app)
     migrate.init_app(app, db)
 
-    # ✅ Register JSON error handlers for all exceptions (HTTP + 500s)
     from .errors import register_error_handlers
     register_error_handlers(app)
 
@@ -35,7 +33,6 @@ def create_app():
         doc='/api/docs'
     )
 
-    # Namespaces...
     from .routes.main import main_bp
     from .routes.dams import dams_bp
     from .routes.latest_data import latest_data_bp

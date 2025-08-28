@@ -6,5 +6,4 @@ main_bp = Namespace('Main', description='Main route for the application')
 @main_bp.route('/', endpoint='main_home')
 class Home(Resource):
     def get(self):
-        """Welcome route"""
         return {"message": "Welcome to the Dam Management API!"}, 200

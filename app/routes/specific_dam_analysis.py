@@ -1,9 +1,5 @@
 # app/routes/specific_dam_analysis.py
-#
-# Keeps list endpoints (all + by dam) with pagination.
-# Adds a detail endpoint demonstrating composite PK lookup using get_or_404:
-#   GET /api/specific_dam_analysis/<dam_id>/<analysis_date>
-# where (dam_id, analysis_date) is the composite primary key.
+
 
 from flask_restx import Namespace, Resource, fields
 from ..models import SpecificDamAnalysis
@@ -55,7 +51,6 @@ class SpecificDamAnalysesList(Resource):
     @specific_dam_analysis_bp.doc('list_specific_dam_analyses')
     @specific_dam_analysis_bp.marshal_with(specific_list_envelope)
     def get(self):
-        """List all specific dam analyses (paginated)"""
         page, per_page = get_pagination_params()
         return envelope(SpecificDamAnalysis.query, page, per_page, 'specific_dam_analysis_list')
 
@@ -66,7 +61,6 @@ class SpecificDamAnalysisDetail(Resource):
     @specific_dam_analysis_bp.doc('get_specific_dam_analysis')
     @specific_dam_analysis_bp.marshal_with(specific_list_envelope)
     def get(self, dam_id):
-        """Get specific dam analyses by dam ID (paginated)"""
         page, per_page = get_pagination_params()
         q = SpecificDamAnalysis.query.filter_by(dam_id=dam_id)
         items = q.paginate(page=page, per_page=per_page, error_out=False)
@@ -75,7 +69,6 @@ class SpecificDamAnalysisDetail(Resource):
         return envelope(q, page, per_page, 'specific_dam_analysis_by_dam', dam_id=dam_id)
 
 
-# NEW: Composite PK detail route
 @specific_dam_analysis_bp.route('/<string:dam_id>/<string:analysis_date>', endpoint='specific_dam_analysis_detail')
 @specific_dam_analysis_bp.param('dam_id', 'The ID of the dam')
 @specific_dam_analysis_bp.param('analysis_date', 'The date of the analysis in ISO format (YYYY-MM-DD)')
@@ -83,7 +76,6 @@ class SpecificDamAnalysisDetailByPK(Resource):
     @specific_dam_analysis_bp.doc('get_specific_dam_analysis_detail')
     @specific_dam_analysis_bp.marshal_with(specific_dam_analysis_model)
     def get(self, dam_id, analysis_date):
-        """Get a specific dam analysis by composite PK (dam_id + analysis_date)"""
         analysis_date_obj = parse_iso_date(analysis_date)
         return get_or_404(
             SpecificDamAnalysis,
