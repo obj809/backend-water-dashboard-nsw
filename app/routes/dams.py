@@ -1,12 +1,16 @@
 # app/routes/dams.py
+#
+# Adds pagination to:
+#   - GET /api/dams/
+# Keeps detail GET unchanged.
 
 from flask_restx import Namespace, Resource, fields
 from ..models import Dam
 from .. import db
+from ..utils.pagination import get_pagination_params, envelope
 
 dams_bp = Namespace('Dams', description='Endpoints for managing dams')
 
-# Define a model for dams
 dam_model = dams_bp.model('Dam', {
     'dam_id': fields.String(required=True, description='The ID of the dam'),
     'dam_name': fields.String(required=True, description='The name of the dam'),
@@ -15,18 +19,37 @@ dam_model = dams_bp.model('Dam', {
     'longitude': fields.Float(description='The longitude of the dam'),
 })
 
+pagination_meta = dams_bp.model('PaginationMeta', {
+    'page': fields.Integer,
+    'per_page': fields.Integer,
+    'pages': fields.Integer,
+    'total': fields.Integer,
+})
 
-@dams_bp.route('/')
+pagination_links = dams_bp.model('PaginationLinks', {
+    'self': fields.String,
+    'next': fields.String,
+    'prev': fields.String,
+})
+
+dam_list_envelope = dams_bp.model('DamListEnvelope', {
+    'data': fields.List(fields.Nested(dam_model)),
+    'meta': fields.Nested(pagination_meta),
+    'links': fields.Nested(pagination_links),
+})
+
+
+@dams_bp.route('/', endpoint='dams_list')
 class DamsList(Resource):
     @dams_bp.doc('list_dams')
-    @dams_bp.marshal_list_with(dam_model)
+    @dams_bp.marshal_with(dam_list_envelope)
     def get(self):
-        """List all dams"""
-        dams = Dam.query.all()
-        return dams
+        """List all dams (paginated)"""
+        page, per_page = get_pagination_params()
+        return envelope(Dam.query, page, per_page, 'dams_list')
 
 
-@dams_bp.route('/<string:dam_id>')
+@dams_bp.route('/<string:dam_id>', endpoint='dams_detail')
 @dams_bp.param('dam_id', 'The ID of the dam')
 class DamDetail(Resource):
     @dams_bp.doc('get_dam')

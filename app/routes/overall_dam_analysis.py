@@ -1,13 +1,18 @@
 # app/routes/overall_dam_analysis.py
+#
+# Adds pagination to:
+#   - GET /api/overall_dam_analysis/
+# Keeps detail GET unchanged (with date parsing).
 
 from datetime import date
 from flask_restx import Namespace, Resource, fields
 from ..models import OverallDamAnalysis
 from .. import db
+from ..utils.pagination import get_pagination_params, envelope
+from ..utils.dates import parse_iso_date
 
 overall_dam_analysis_bp = Namespace('OverallDamAnalysis', description='Endpoints for overall dam analyses')
 
-# Define a model for overall dam analysis
 overall_dam_analysis_model = overall_dam_analysis_bp.model('OverallDamAnalysis', {
     'analysis_date': fields.String(required=True, description='The date of the analysis in ISO format'),
     'avg_storage_volume_12_months': fields.Float(description='Average storage volume over 12 months'),
@@ -24,29 +29,44 @@ overall_dam_analysis_model = overall_dam_analysis_bp.model('OverallDamAnalysis',
     'avg_storage_release_20_years': fields.Float(description='Average release over 20 years'),
 })
 
+pagination_meta = overall_dam_analysis_bp.model('PaginationMeta', {
+    'page': fields.Integer,
+    'per_page': fields.Integer,
+    'pages': fields.Integer,
+    'total': fields.Integer,
+})
 
-@overall_dam_analysis_bp.route('/')
+pagination_links = overall_dam_analysis_bp.model('PaginationLinks', {
+    'self': fields.String,
+    'next': fields.String,
+    'prev': fields.String,
+})
+
+overall_list_envelope = overall_dam_analysis_bp.model('OverallDamAnalysisListEnvelope', {
+    'data': fields.List(fields.Nested(overall_dam_analysis_model)),
+    'meta': fields.Nested(pagination_meta),
+    'links': fields.Nested(pagination_links),
+})
+
+
+@overall_dam_analysis_bp.route('/', endpoint='overall_dam_analysis_list')
 class OverallDamAnalysesList(Resource):
     @overall_dam_analysis_bp.doc('list_overall_dam_analyses')
-    @overall_dam_analysis_bp.marshal_list_with(overall_dam_analysis_model)
+    @overall_dam_analysis_bp.marshal_with(overall_list_envelope)
     def get(self):
-        """List all overall dam analyses"""
-        analyses = OverallDamAnalysis.query.all()
-        return analyses
+        """List all overall dam analyses (paginated)"""
+        page, per_page = get_pagination_params()
+        return envelope(OverallDamAnalysis.query, page, per_page, 'overall_dam_analysis_list')
 
 
-@overall_dam_analysis_bp.route('/<string:analysis_date>')
+@overall_dam_analysis_bp.route('/<string:analysis_date>', endpoint='overall_dam_analysis_detail')
 @overall_dam_analysis_bp.param('analysis_date', 'The date of the analysis in ISO format (YYYY-MM-DD)')
 class OverallDamAnalysisDetail(Resource):
     @overall_dam_analysis_bp.doc('get_overall_dam_analysis')
     @overall_dam_analysis_bp.marshal_with(overall_dam_analysis_model)
     def get(self, analysis_date):
         """Get overall dam analysis by date"""
-        try:
-            analysis_date_obj = date.fromisoformat(analysis_date)
-        except ValueError:
-            overall_dam_analysis_bp.abort(400, "Invalid date format. Use YYYY-MM-DD.")
-        
+        analysis_date_obj = parse_iso_date(analysis_date)
         analysis = OverallDamAnalysis.query.get(analysis_date_obj)
         if not analysis:
             overall_dam_analysis_bp.abort(404, "Overall dam analysis not found for the specified date.")

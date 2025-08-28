@@ -1,12 +1,18 @@
 # app/routes/specific_dam_analysis.py
+#
+# Adds pagination to:
+#   - GET /api/specific_dam_analysis/
+#   - GET /api/specific_dam_analysis/<dam_id>
+# The detail route returns a paginated list of analyses for a dam (multiple rows).
+# (We keep this as a list because the table uses (dam_id, analysis_date) as PK.)
 
 from flask_restx import Namespace, Resource, fields
 from ..models import SpecificDamAnalysis
 from .. import db
+from ..utils.pagination import get_pagination_params, envelope
 
 specific_dam_analysis_bp = Namespace('SpecificDamAnalysis', description='Endpoints for specific dam analyses')
 
-# Define a model for specific dam analysis
 specific_dam_analysis_model = specific_dam_analysis_bp.model('SpecificDamAnalysis', {
     'dam_id': fields.String(required=True, description='The ID of the dam'),
     'analysis_date': fields.String(required=True, description='The date of the analysis in ISO format'),
@@ -24,25 +30,46 @@ specific_dam_analysis_model = specific_dam_analysis_bp.model('SpecificDamAnalysi
     'avg_storage_release_20_years': fields.Float(description='Average release over 20 years'),
 })
 
+pagination_meta = specific_dam_analysis_bp.model('PaginationMeta', {
+    'page': fields.Integer,
+    'per_page': fields.Integer,
+    'pages': fields.Integer,
+    'total': fields.Integer,
+})
 
-@specific_dam_analysis_bp.route('/')
+pagination_links = specific_dam_analysis_bp.model('PaginationLinks', {
+    'self': fields.String,
+    'next': fields.String,
+    'prev': fields.String,
+})
+
+specific_list_envelope = specific_dam_analysis_bp.model('SpecificDamAnalysisListEnvelope', {
+    'data': fields.List(fields.Nested(specific_dam_analysis_model)),
+    'meta': fields.Nested(pagination_meta),
+    'links': fields.Nested(pagination_links),
+})
+
+
+@specific_dam_analysis_bp.route('/', endpoint='specific_dam_analysis_list')
 class SpecificDamAnalysesList(Resource):
     @specific_dam_analysis_bp.doc('list_specific_dam_analyses')
-    @specific_dam_analysis_bp.marshal_list_with(specific_dam_analysis_model)
+    @specific_dam_analysis_bp.marshal_with(specific_list_envelope)
     def get(self):
-        """List all specific dam analyses"""
-        analyses = SpecificDamAnalysis.query.all()
-        return analyses
+        """List all specific dam analyses (paginated)"""
+        page, per_page = get_pagination_params()
+        return envelope(SpecificDamAnalysis.query, page, per_page, 'specific_dam_analysis_list')
 
 
-@specific_dam_analysis_bp.route('/<string:dam_id>')
+@specific_dam_analysis_bp.route('/<string:dam_id>', endpoint='specific_dam_analysis_by_dam')
 @specific_dam_analysis_bp.param('dam_id', 'The ID of the dam')
 class SpecificDamAnalysisDetail(Resource):
     @specific_dam_analysis_bp.doc('get_specific_dam_analysis')
-    @specific_dam_analysis_bp.marshal_list_with(specific_dam_analysis_model)
+    @specific_dam_analysis_bp.marshal_with(specific_list_envelope)
     def get(self, dam_id):
-        """Get specific dam analyses by dam ID"""
-        analyses = SpecificDamAnalysis.query.filter_by(dam_id=dam_id).all()
-        if not analyses:
+        """Get specific dam analyses by dam ID (paginated)"""
+        page, per_page = get_pagination_params()
+        q = SpecificDamAnalysis.query.filter_by(dam_id=dam_id)
+        items = q.paginate(page=page, per_page=per_page, error_out=False)
+        if items.total == 0:
             specific_dam_analysis_bp.abort(404, "Specific dam analyses not found for the specified dam.")
-        return analyses
+        return envelope(q, page, per_page, 'specific_dam_analysis_by_dam', dam_id=dam_id)
