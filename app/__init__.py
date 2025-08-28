@@ -1,5 +1,4 @@
 # app/__init__.py
-
 from flask import Flask
 from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
@@ -12,10 +11,11 @@ migrate = Migrate()
 
 def create_app():
     app = Flask(__name__)
-    app.config.from_object(Config)
 
-    # Validate configuration
+    # Make sure config is fresh and valid, then load it
+    Config.refresh_from_env()
     Config.validate()
+    app.config.from_object(Config)
 
     print("DEBUG (create_app): SQLALCHEMY_DATABASE_URI in config:", app.config.get("SQLALCHEMY_DATABASE_URI"))
 
@@ -23,16 +23,19 @@ def create_app():
     db.init_app(app)
     migrate.init_app(app, db)
 
-    # Initialize Flask-RESTx API
+    # ✅ Register JSON error handlers for all exceptions (HTTP + 500s)
+    from .errors import register_error_handlers
+    register_error_handlers(app)
+
     api = Api(
         app,
         version='1.0',
         title='Dam Management API',
         description='API documentation for Dam Management System',
-        doc='/api/docs'  # Swagger UI will be available at /api/docs
+        doc='/api/docs'
     )
 
-    # Import and register namespaces
+    # Namespaces...
     from .routes.main import main_bp
     from .routes.dams import dams_bp
     from .routes.latest_data import latest_data_bp
@@ -42,8 +45,7 @@ def create_app():
     from .routes.dam_groups import dam_groups_bp
     from .routes.dam_group_members import dam_group_members_bp
 
-    # Register namespaces with specific paths
-    api.add_namespace(main_bp, path='/api')  # Root route
+    api.add_namespace(main_bp, path='/api')
     api.add_namespace(dams_bp, path='/api/dams')
     api.add_namespace(latest_data_bp, path='/api/latest_data')
     api.add_namespace(dam_resources_bp, path='/api/dam_resources')

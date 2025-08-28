@@ -12,6 +12,10 @@ TEST_DB_URI = "sqlite:///:memory:"
 
 @pytest.fixture(scope="session")
 def app():
+    """
+    Create a single Flask app for the entire test session.
+    The database schema is created here once; tests will reset it via `reset_db`.
+    """
     # 1) Set env BEFORE importing app/config
     os.environ["SQLALCHEMY_DATABASE_URI"] = TEST_DB_URI
     os.environ["DEBUG"] = "False"
@@ -20,6 +24,10 @@ def app():
     import app.config as app_config
     importlib.reload(app_config)
 
+    # Also set the class attributes explicitly (bypasses import-time caching)
+    app_config.Config.SQLALCHEMY_DATABASE_URI = TEST_DB_URI
+    app_config.Config.DEBUG = False
+
     # 3) Now import create_app with the fresh Config
     from app import create_app, db as _db
 
@@ -27,23 +35,42 @@ def app():
     app.testing = True
 
     with app.app_context():
-        _db.create_all()
+        _db.create_all()  # initial schema for the session
         yield app
         _db.session.remove()
         _db.drop_all()
 
+
 @pytest.fixture(scope="session")
 def client(app):
     return app.test_client()
+
 
 @pytest.fixture()
 def db(app):
     from app import db as _db
     return _db
 
+
 @pytest.fixture()
-def seed_minimal(db):
-    """Insert a minimal set of rows for common tests."""
+def reset_db(app):
+    """
+    Drop and recreate all tables before each test that requires data.
+    This guarantees isolation and prevents PK collisions across tests.
+    """
+    from app import db as _db
+    with app.app_context():
+        _db.session.remove()
+        _db.drop_all()
+        _db.create_all()
+        yield
+        # Optional cleanup after test (not strictly necessary with in-memory DB)
+        _db.session.remove()
+
+
+@pytest.fixture()
+def seed_minimal(reset_db, db):
+    """Insert a minimal set of rows for common tests (fresh schema per test)."""
     from app.models import (
         Dam, LatestData, DamResource, SpecificDamAnalysis,
         OverallDamAnalysis, DamGroup, DamGroupMember

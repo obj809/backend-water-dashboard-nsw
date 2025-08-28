@@ -42,4 +42,20 @@ python scripts/test_api_endpoints.py
 
 # Testing
 
-PYTHONPATH="$PWD" python -m pytest -q
+
+pytest
+
+pytest -v
+
+pytest tests/test_config.py
+pytest tests/test_errors.py
+pytest tests/test_utils_dates.py
+pytest tests/test_utils_pagination.py
+pytest tests/test_utils_db.py
+pytest tests/test_dams_routes.py
+pytest tests/test_dam_resources_routes.py
+pytest tests/test_latest_data_routes.py
+pytest tests/test_overall_dam_analysis_routes.py
+pytest tests/test_dam_groups_routes.py
+pytest tests/test_dam_group_members_routes.py
+pytest tests/test_specific_dam_analysis_routes.py
