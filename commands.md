@@ -38,3 +38,8 @@ python scripts/insert_dam_analysis_data.py
 python scripts/data_collection_and_export.py
 
 python scripts/test_api_endpoints.py
+
+
+# Testing
+
+PYTHONPATH="$PWD" python -m pytest -q

@@ -1,13 +1,12 @@
 # app/routes/dam_groups.py
 #
-# Adds pagination to:
-#   - GET /api/dam_groups/
-# Keeps detail GET unchanged.
+# Modernizes PK lookups using db.session.get via get_or_404 helper.
+# Keeps pagination for list endpoint.
 
 from flask_restx import Namespace, Resource, fields
 from ..models import DamGroup
-from .. import db
 from ..utils.pagination import get_pagination_params, envelope
+from ..utils.db import get_or_404
 
 dam_groups_bp = Namespace('DamGroups', description='Endpoints for managing dam groups')
 
@@ -52,7 +51,4 @@ class Group(Resource):
     @dam_groups_bp.marshal_with(group_model)
     def get(self, group_name):
         """Get a dam group by name"""
-        group = DamGroup.query.get(group_name)
-        if not group:
-            dam_groups_bp.abort(404, "Dam group not found.")
-        return group
+        return get_or_404(DamGroup, group_name, "Dam group not found.")

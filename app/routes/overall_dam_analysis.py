@@ -1,14 +1,12 @@
 # app/routes/overall_dam_analysis.py
 #
-# Adds pagination to:
-#   - GET /api/overall_dam_analysis/
-# Keeps detail GET unchanged (with date parsing).
+# Modernizes PK lookups using db.session.get via get_or_404 helper.
+# Keeps pagination for list endpoint and ISO date parsing.
 
-from datetime import date
 from flask_restx import Namespace, Resource, fields
 from ..models import OverallDamAnalysis
-from .. import db
 from ..utils.pagination import get_pagination_params, envelope
+from ..utils.db import get_or_404
 from ..utils.dates import parse_iso_date
 
 overall_dam_analysis_bp = Namespace('OverallDamAnalysis', description='Endpoints for overall dam analyses')
@@ -67,7 +65,5 @@ class OverallDamAnalysisDetail(Resource):
     def get(self, analysis_date):
         """Get overall dam analysis by date"""
         analysis_date_obj = parse_iso_date(analysis_date)
-        analysis = OverallDamAnalysis.query.get(analysis_date_obj)
-        if not analysis:
-            overall_dam_analysis_bp.abort(404, "Overall dam analysis not found for the specified date.")
-        return analysis
+        return get_or_404(OverallDamAnalysis, analysis_date_obj,
+                          "Overall dam analysis not found for the specified date.")

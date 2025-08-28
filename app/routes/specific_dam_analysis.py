@@ -1,15 +1,15 @@
 # app/routes/specific_dam_analysis.py
 #
-# Adds pagination to:
-#   - GET /api/specific_dam_analysis/
-#   - GET /api/specific_dam_analysis/<dam_id>
-# The detail route returns a paginated list of analyses for a dam (multiple rows).
-# (We keep this as a list because the table uses (dam_id, analysis_date) as PK.)
+# Keeps list endpoints (all + by dam) with pagination.
+# Adds a detail endpoint demonstrating composite PK lookup using get_or_404:
+#   GET /api/specific_dam_analysis/<dam_id>/<analysis_date>
+# where (dam_id, analysis_date) is the composite primary key.
 
 from flask_restx import Namespace, Resource, fields
 from ..models import SpecificDamAnalysis
-from .. import db
 from ..utils.pagination import get_pagination_params, envelope
+from ..utils.db import get_or_404
+from ..utils.dates import parse_iso_date
 
 specific_dam_analysis_bp = Namespace('SpecificDamAnalysis', description='Endpoints for specific dam analyses')
 
@@ -73,3 +73,20 @@ class SpecificDamAnalysisDetail(Resource):
         if items.total == 0:
             specific_dam_analysis_bp.abort(404, "Specific dam analyses not found for the specified dam.")
         return envelope(q, page, per_page, 'specific_dam_analysis_by_dam', dam_id=dam_id)
+
+
+# NEW: Composite PK detail route
+@specific_dam_analysis_bp.route('/<string:dam_id>/<string:analysis_date>', endpoint='specific_dam_analysis_detail')
+@specific_dam_analysis_bp.param('dam_id', 'The ID of the dam')
+@specific_dam_analysis_bp.param('analysis_date', 'The date of the analysis in ISO format (YYYY-MM-DD)')
+class SpecificDamAnalysisDetailByPK(Resource):
+    @specific_dam_analysis_bp.doc('get_specific_dam_analysis_detail')
+    @specific_dam_analysis_bp.marshal_with(specific_dam_analysis_model)
+    def get(self, dam_id, analysis_date):
+        """Get a specific dam analysis by composite PK (dam_id + analysis_date)"""
+        analysis_date_obj = parse_iso_date(analysis_date)
+        return get_or_404(
+            SpecificDamAnalysis,
+            (dam_id, analysis_date_obj),
+            "Specific dam analysis not found for the specified dam/date."
+        )

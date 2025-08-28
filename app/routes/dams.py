@@ -1,13 +1,12 @@
 # app/routes/dams.py
 #
-# Adds pagination to:
-#   - GET /api/dams/
-# Keeps detail GET unchanged.
+# Modernizes PK lookups using db.session.get via get_or_404 helper.
+# Keeps pagination for list endpoint.
 
 from flask_restx import Namespace, Resource, fields
 from ..models import Dam
-from .. import db
 from ..utils.pagination import get_pagination_params, envelope
+from ..utils.db import get_or_404
 
 dams_bp = Namespace('Dams', description='Endpoints for managing dams')
 
@@ -46,6 +45,7 @@ class DamsList(Resource):
     def get(self):
         """List all dams (paginated)"""
         page, per_page = get_pagination_params()
+        from ..models import Dam  # local import not necessary, but explicit for clarity
         return envelope(Dam.query, page, per_page, 'dams_list')
 
 
@@ -56,7 +56,5 @@ class DamDetail(Resource):
     @dams_bp.marshal_with(dam_model)
     def get(self, dam_id):
         """Get a dam by ID"""
-        dam = Dam.query.get(dam_id)
-        if not dam:
-            dams_bp.abort(404, "Dam not found.")
+        dam = get_or_404(Dam, dam_id, "Dam not found.")
         return dam

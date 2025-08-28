@@ -1,13 +1,12 @@
 # app/routes/latest_data.py
 #
-# Adds pagination to:
-#   - GET /api/latest_data/
-# Keeps detail GET unchanged.
+# Modernizes PK lookups using db.session.get via get_or_404 helper.
+# Keeps pagination for list endpoint.
 
 from flask_restx import Namespace, Resource, fields
 from ..models import LatestData
-from .. import db
 from ..utils.pagination import get_pagination_params, envelope
+from ..utils.db import get_or_404
 
 latest_data_bp = Namespace('LatestData', description='Endpoints for managing latest dam data')
 
@@ -58,7 +57,4 @@ class LatestDataDetail(Resource):
     @latest_data_bp.marshal_with(latest_data_model)
     def get(self, dam_id):
         """Get the latest data for a specific dam by ID"""
-        data = LatestData.query.get(dam_id)
-        if not data:
-            latest_data_bp.abort(404, "Latest data for the specified dam not found.")
-        return data
+        return get_or_404(LatestData, dam_id, "Latest data for the specified dam not found.")
