@@ -11,78 +11,273 @@
         "url": "http://localhost:5001/api/dams",
         "status_code": 200,
         "description": "List all dams",
-        "content": [
-            {
-                "dam_id": "203042",
-                "dam_name": "Toonumbar Dam",
-                "full_volume": 10814,
-                "latitude": -28.602383,
-                "longitude": 152.763769
+        "content": {
+            "data": [
+                {
+                    "dam_id": "203042",
+                    "dam_name": "Toonumbar Dam",
+                    "full_volume": 10814,
+                    "latitude": -28.602383,
+                    "longitude": 152.763769
+                },
+                {
+                    "dam_id": "210097",
+                    "dam_name": "Glenbawn Dam",
+                    "full_volume": 748827,
+                    "latitude": -32.064304,
+                    "longitude": 150.982007
+                },
+                {
+                    "dam_id": "210102",
+                    "dam_name": "Lostock Dam",
+                    "full_volume": 19736,
+                    "latitude": -32.335999,
+                    "longitude": 151.440793
+                },
+                {
+                    "dam_id": "210117",
+                    "dam_name": "Glennies Creek Dam",
+                    "full_volume": 282303,
+                    "latitude": -32.339259,
+                    "longitude": 151.286947
+                },
+                {
+                    "dam_id": "212205",
+                    "dam_name": "Nepean Dam",
+                    "full_volume": 67730,
+                    "latitude": -34.335046,
+                    "longitude": 150.617666
+                },
+                {
+                    "dam_id": "212211",
+                    "dam_name": "Avon Dam",
+                    "full_volume": 142230,
+                    "latitude": -34.350932,
+                    "longitude": 150.6405
+                },
+                {
+                    "dam_id": "212212",
+                    "dam_name": "Wingecarribee Reservoir",
+                    "full_volume": 29880,
+                    "latitude": -34.540413,
+                    "longitude": 150.498916
+                },
+                {
+                    "dam_id": "212220",
+                    "dam_name": "Cordeaux Dam",
+                    "full_volume": 93790,
+                    "latitude": -34.336403,
+                    "longitude": 150.745918
+                },
+                {
+                    "dam_id": "212232",
+                    "dam_name": "Cataract Dam",
+                    "full_volume": 97190,
+                    "latitude": -34.265584,
+                    "longitude": 150.803553
+                },
+                {
+                    "dam_id": "212243",
+                    "dam_name": "Warragamba Dam",
+                    "full_volume": 2064680,
+                    "latitude": -33.891111,
+                    "longitude": 150.591111
+                },
+                {
+                    "dam_id": "213210",
+                    "dam_name": "Woronora Dam",
+                    "full_volume": 69536,
+                    "latitude": -34.109296,
+                    "longitude": 150.936519
+                },
+                {
+                    "dam_id": "213240",
+                    "dam_name": "Prospect Reservoir",
+                    "full_volume": 33330,
+                    "latitude": -33.832851,
+                    "longitude": 150.890158
+                },
+                {
+                    "dam_id": "215212",
+                    "dam_name": "Tallowa Dam",
+                    "full_volume": 7500,
+                    "latitude": -34.771563,
+                    "longitude": 150.315266
+                },
+                {
+                    "dam_id": "215235",
+                    "dam_name": "Fitzroy Falls Reservoir",
+                    "full_volume": 9950,
+                    "latitude": -34.645106,
+                    "longitude": 150.48719
+                },
+                {
+                    "dam_id": "219027",
+                    "dam_name": "Brogo Dam",
+                    "full_volume": 8786,
+                    "latitude": -36.476593,
+                    "longitude": 149.722275
+                },
+                {
+                    "dam_id": "219033",
+                    "dam_name": "Cochrane Dam",
+                    "full_volume": 2700,
+                    "latitude": -36.5703,
+                    "longitude": 149.4554
+                },
+                {
+                    "dam_id": "410102",
+                    "dam_name": "Blowering Dam",
+                    "full_volume": 1604010,
+                    "latitude": -35.515836,
+                    "longitude": 148.254929
+                },
+                {
+                    "dam_id": "410131",
+                    "dam_name": "Burrinjuck Dam",
+                    "full_volume": 1024750,
+                    "latitude": -35.014067,
+                    "longitude": 148.643656
+                },
+                {
+                    "dam_id": "412010",
+                    "dam_name": "Lake Wyangala",
+                    "full_volume": 1217035,
+                    "latitude": -33.931625,
+                    "longitude": 149.010236
+                },
+                {
+                    "dam_id": "412106",
+                    "dam_name": "Carcoar Dam",
+                    "full_volume": 35917,
+                    "latitude": -33.601561,
+                    "longitude": 149.203153
+                },
+                {
+                    "dam_id": "412107",
+                    "dam_name": "Lake Cargelligo",
+                    "full_volume": 30163,
+                    "latitude": -33.295281,
+                    "longitude": 146.390692
+                },
+                {
+                    "dam_id": "412108",
+                    "dam_name": "Lake Brewster",
+                    "full_volume": 145369,
+                    "latitude": -33.492387,
+                    "longitude": 145.975896
+                },
+                {
+                    "dam_id": "416030",
+                    "dam_name": "Pindari Dam",
+                    "full_volume": 311500,
+                    "latitude": -29.381739,
+                    "longitude": 151.269225
+                },
+                {
+                    "dam_id": "418035",
+                    "dam_name": "Copeton Dam",
+                    "full_volume": 1345510,
+                    "latitude": -29.904891,
+                    "longitude": 150.989479
+                },
+                {
+                    "dam_id": "419041",
+                    "dam_name": "Keepit Dam",
+                    "full_volume": 418950,
+                    "latitude": -30.819471,
+                    "longitude": 150.516625
+                },
+                {
+                    "dam_id": "419069",
+                    "dam_name": "Chaffey Dam",
+                    "full_volume": 100509,
+                    "latitude": -31.356884,
+                    "longitude": 151.119117
+                },
+                {
+                    "dam_id": "419080",
+                    "dam_name": "Split Rock Dam",
+                    "full_volume": 393840,
+                    "latitude": -30.537122,
+                    "longitude": 150.674591
+                },
+                {
+                    "dam_id": "421078",
+                    "dam_name": "Burrendong Dam",
+                    "full_volume": 1154270,
+                    "latitude": -32.688321,
+                    "longitude": 149.157884
+                },
+                {
+                    "dam_id": "421148",
+                    "dam_name": "Windamere Dam",
+                    "full_volume": 366989,
+                    "latitude": -32.782606,
+                    "longitude": 149.81548
+                },
+                {
+                    "dam_id": "421189",
+                    "dam_name": "Oberon Dam",
+                    "full_volume": 45000,
+                    "latitude": -33.72467,
+                    "longitude": 149.866781
+                },
+                {
+                    "dam_id": "425022",
+                    "dam_name": "Lake Menindee",
+                    "full_volume": 629492,
+                    "latitude": -32.343792,
+                    "longitude": 142.328445
+                },
+                {
+                    "dam_id": "425023",
+                    "dam_name": "Lake Cawndilla",
+                    "full_volume": 631050,
+                    "latitude": -32.475672,
+                    "longitude": 142.229739
+                },
+                {
+                    "dam_id": "425046",
+                    "dam_name": "Lake Wetherell",
+                    "full_volume": 115759,
+                    "latitude": -32.311286,
+                    "longitude": 142.54764
+                },
+                {
+                    "dam_id": "425047",
+                    "dam_name": "Lake Tandure",
+                    "full_volume": 77419,
+                    "latitude": -32.27323,
+                    "longitude": 142.5424
+                },
+                {
+                    "dam_id": "42510036",
+                    "dam_name": "Lake Pamamaroo",
+                    "full_volume": 270001,
+                    "latitude": -32.3,
+                    "longitude": 142.44
+                },
+                {
+                    "dam_id": "42510037",
+                    "dam_name": "Lake Copi Hollow",
+                    "full_volume": 7729,
+                    "latitude": -32.254265,
+                    "longitude": 142.392175
+                }
+            ],
+            "meta": {
+                "page": 1,
+                "per_page": 50,
+                "pages": 1,
+                "total": 36
             },
-            {
-                "dam_id": "210097",
-                "dam_name": "Glenbawn Dam",
-                "full_volume": 748827,
-                "latitude": -32.064304,
-                "longitude": 150.982007
-            },
-            {
-                "dam_id": "210102",
-                "dam_name": "Lostock Dam",
-                "full_volume": 19736,
-                "latitude": -32.335999,
-                "longitude": 151.440793
-            },
-            {
-                "dam_id": "210117",
-                "dam_name": "Glennies Creek Dam",
-                "full_volume": 282303,
-                "latitude": -32.339259,
-                "longitude": 151.286947
-            },
-            {
-                "dam_id": "212205",
-                "dam_name": "Nepean Dam",
-                "full_volume": 67730,
-                "latitude": -34.335046,
-                "longitude": 150.617666
-            },
-            {
-                "dam_id": "212211",
-                "dam_name": "Avon Dam",
-                "full_volume": 142230,
-                "latitude": -34.350932,
-                "longitude": 150.6405
-            },
-            {
-                "dam_id": "212212",
-                "dam_name": "Wingecarribee Reservoir",
-                "full_volume": 29880,
-                "latitude": -34.540413,
-                "longitude": 150.498916
-            },
-            {
-                "dam_id": "212220",
-                "dam_name": "Cordeaux Dam",
-                "full_volume": 93790,
-                "latitude": -34.336403,
-                "longitude": 150.745918
-            },
-            {
-                "dam_id": "212232",
-                "dam_name": "Cataract Dam",
-                "full_volume": 97190,
-                "latitude": -34.265584,
-                "longitude": 150.803553
-            },
-            {
-                "dam_id": "212243",
-                "dam_name": "Warragamba Dam",
-                "full_volume": 2064680,
-                "latitude": -33.891111,
-                "longitude": 150.591111
+            "links": {
+                "self": "http://localhost:5001/api/dams/?page=1&per_page=50",
+                "next": null,
+                "prev": null
             }
-        ]
+        }
     },
     {
         "url": "http://localhost:5001/api/dams/203042",
@@ -100,98 +295,345 @@
         "url": "http://localhost:5001/api/latest_data",
         "status_code": 200,
         "description": "List all latest dam data entries",
-        "content": [
-            {
-                "dam_id": "203042",
-                "dam_name": "Toonumbar Dam",
-                "date": "2024-11-25",
-                "storage_volume": 10500.0,
-                "percentage_full": 97.0,
-                "storage_inflow": 500.5,
-                "storage_release": 300.3
+        "content": {
+            "data": [
+                {
+                    "dam_id": "203042",
+                    "dam_name": "Toonumbar Dam",
+                    "date": "2024-11-25",
+                    "storage_volume": 10500.0,
+                    "percentage_full": 97.0,
+                    "storage_inflow": 500.5,
+                    "storage_release": 300.3
+                },
+                {
+                    "dam_id": "210097",
+                    "dam_name": "Glenbawn Dam",
+                    "date": "2024-11-25",
+                    "storage_volume": 730000.0,
+                    "percentage_full": 97.45,
+                    "storage_inflow": 2200.2,
+                    "storage_release": 1600.0
+                },
+                {
+                    "dam_id": "210102",
+                    "dam_name": "Lostock Dam",
+                    "date": "2024-11-25",
+                    "storage_volume": 19500.0,
+                    "percentage_full": 98.77,
+                    "storage_inflow": 600.0,
+                    "storage_release": 350.8
+                },
+                {
+                    "dam_id": "210117",
+                    "dam_name": "Glennies Creek Dam",
+                    "date": "2024-11-25",
+                    "storage_volume": 280000.0,
+                    "percentage_full": 99.5,
+                    "storage_inflow": 1800.5,
+                    "storage_release": 1300.3
+                },
+                {
+                    "dam_id": "212205",
+                    "dam_name": "Nepean Dam",
+                    "date": "2024-11-25",
+                    "storage_volume": 68000.0,
+                    "percentage_full": 95.0,
+                    "storage_inflow": 1180.7,
+                    "storage_release": 790.4
+                },
+                {
+                    "dam_id": "212211",
+                    "dam_name": "Avon Dam",
+                    "date": "2024-11-25",
+                    "storage_volume": 140000.0,
+                    "percentage_full": 98.0,
+                    "storage_inflow": 1150.6,
+                    "storage_release": 770.5
+                },
+                {
+                    "dam_id": "212212",
+                    "dam_name": "Wingecarribee Reservoir",
+                    "date": "2024-11-25",
+                    "storage_volume": 29500.0,
+                    "percentage_full": 99.0,
+                    "storage_inflow": 1050.2,
+                    "storage_release": 730.0
+                },
+                {
+                    "dam_id": "212220",
+                    "dam_name": "Cordeaux Dam",
+                    "date": "2024-11-25",
+                    "storage_volume": 93000.0,
+                    "percentage_full": 99.2,
+                    "storage_inflow": 1400.0,
+                    "storage_release": 800.0
+                },
+                {
+                    "dam_id": "212232",
+                    "dam_name": "Cataract Dam",
+                    "date": "2024-11-25",
+                    "storage_volume": 96000.0,
+                    "percentage_full": 98.9,
+                    "storage_inflow": 1500.5,
+                    "storage_release": 820.3
+                },
+                {
+                    "dam_id": "212243",
+                    "dam_name": "Warragamba Dam",
+                    "date": "2024-11-25",
+                    "storage_volume": 2064000.0,
+                    "percentage_full": 100.0,
+                    "storage_inflow": 2500.7,
+                    "storage_release": 1800.6
+                },
+                {
+                    "dam_id": "213210",
+                    "dam_name": "Woronora Dam",
+                    "date": "2024-11-25",
+                    "storage_volume": 69000.0,
+                    "percentage_full": 99.5,
+                    "storage_inflow": 1250.9,
+                    "storage_release": 820.1
+                },
+                {
+                    "dam_id": "213240",
+                    "dam_name": "Prospect Reservoir",
+                    "date": "2024-11-25",
+                    "storage_volume": 33000.0,
+                    "percentage_full": 99.5,
+                    "storage_inflow": 800.3,
+                    "storage_release": 600.7
+                },
+                {
+                    "dam_id": "215212",
+                    "dam_name": "Tallowa Dam",
+                    "date": "2024-11-25",
+                    "storage_volume": 7400.0,
+                    "percentage_full": 99.33,
+                    "storage_inflow": 700.0,
+                    "storage_release": 400.3
+                },
+                {
+                    "dam_id": "215235",
+                    "dam_name": "Fitzroy Falls Reservoir",
+                    "date": "2024-11-25",
+                    "storage_volume": 9900.0,
+                    "percentage_full": 100.0,
+                    "storage_inflow": 800.6,
+                    "storage_release": 500.4
+                },
+                {
+                    "dam_id": "219027",
+                    "dam_name": "Brogo Dam",
+                    "date": "2024-11-25",
+                    "storage_volume": 8700.0,
+                    "percentage_full": 99.0,
+                    "storage_inflow": 550.8,
+                    "storage_release": 330.6
+                },
+                {
+                    "dam_id": "219033",
+                    "dam_name": "Cochrane Dam",
+                    "date": "2024-11-25",
+                    "storage_volume": 2700.0,
+                    "percentage_full": 100.0,
+                    "storage_inflow": 580.9,
+                    "storage_release": 340.7
+                },
+                {
+                    "dam_id": "410102",
+                    "dam_name": "Blowering Dam",
+                    "date": "2024-11-25",
+                    "storage_volume": 1603000.0,
+                    "percentage_full": 99.9,
+                    "storage_inflow": 2000.5,
+                    "storage_release": 1500.3
+                },
+                {
+                    "dam_id": "410131",
+                    "dam_name": "Burrinjuck Dam",
+                    "date": "2024-11-25",
+                    "storage_volume": 1024000.0,
+                    "percentage_full": 99.9,
+                    "storage_inflow": 2050.8,
+                    "storage_release": 1520.3
+                },
+                {
+                    "dam_id": "412010",
+                    "dam_name": "Lake Wyangala",
+                    "date": "2024-11-25",
+                    "storage_volume": 1217000.0,
+                    "percentage_full": 99.8,
+                    "storage_inflow": 2100.6,
+                    "storage_release": 1550.5
+                },
+                {
+                    "dam_id": "412106",
+                    "dam_name": "Carcoar Dam",
+                    "date": "2024-11-25",
+                    "storage_volume": 36000.0,
+                    "percentage_full": 99.9,
+                    "storage_inflow": 400.3,
+                    "storage_release": 250.7
+                },
+                {
+                    "dam_id": "412107",
+                    "dam_name": "Lake Cargelligo",
+                    "date": "2024-11-25",
+                    "storage_volume": 30000.0,
+                    "percentage_full": 99.8,
+                    "storage_inflow": 620.1,
+                    "storage_release": 360.9
+                },
+                {
+                    "dam_id": "412108",
+                    "dam_name": "Lake Brewster",
+                    "date": "2024-11-25",
+                    "storage_volume": 145300.0,
+                    "percentage_full": 99.9,
+                    "storage_inflow": 700.0,
+                    "storage_release": 500.5
+                },
+                {
+                    "dam_id": "416030",
+                    "dam_name": "Pindari Dam",
+                    "date": "2024-11-25",
+                    "storage_volume": 310000.0,
+                    "percentage_full": 99.5,
+                    "storage_inflow": 900.0,
+                    "storage_release": 600.3
+                },
+                {
+                    "dam_id": "418035",
+                    "dam_name": "Copeton Dam",
+                    "date": "2024-11-25",
+                    "storage_volume": 1345000.0,
+                    "percentage_full": 99.8,
+                    "storage_inflow": 1900.7,
+                    "storage_release": 1450.4
+                },
+                {
+                    "dam_id": "419041",
+                    "dam_name": "Keepit Dam",
+                    "date": "2024-11-25",
+                    "storage_volume": 420000.0,
+                    "percentage_full": 99.9,
+                    "storage_inflow": 1850.6,
+                    "storage_release": 1350.4
+                },
+                {
+                    "dam_id": "419069",
+                    "dam_name": "Chaffey Dam",
+                    "date": "2024-11-25",
+                    "storage_volume": 100500.0,
+                    "percentage_full": 99.9,
+                    "storage_inflow": 950.0,
+                    "storage_release": 550.4
+                },
+                {
+                    "dam_id": "419080",
+                    "dam_name": "Split Rock Dam",
+                    "date": "2024-11-25",
+                    "storage_volume": 394000.0,
+                    "percentage_full": 99.8,
+                    "storage_inflow": 2250.3,
+                    "storage_release": 1620.1
+                },
+                {
+                    "dam_id": "421078",
+                    "dam_name": "Burrendong Dam",
+                    "date": "2024-11-25",
+                    "storage_volume": 1154000.0,
+                    "percentage_full": 99.8,
+                    "storage_inflow": 1950.9,
+                    "storage_release": 1480.1
+                },
+                {
+                    "dam_id": "421148",
+                    "dam_name": "Windamere Dam",
+                    "date": "2024-11-25",
+                    "storage_volume": 367000.0,
+                    "percentage_full": 99.9,
+                    "storage_inflow": 1600.2,
+                    "storage_release": 1100.7
+                },
+                {
+                    "dam_id": "421189",
+                    "dam_name": "Oberon Dam",
+                    "date": "2024-11-25",
+                    "storage_volume": 45000.0,
+                    "percentage_full": 99.9,
+                    "storage_inflow": 800.3,
+                    "storage_release": 500.7
+                },
+                {
+                    "dam_id": "425022",
+                    "dam_name": "Lake Menindee",
+                    "date": "2024-11-25",
+                    "storage_volume": 630000.0,
+                    "percentage_full": 99.8,
+                    "storage_inflow": 1800.5,
+                    "storage_release": 1200.3
+                },
+                {
+                    "dam_id": "425023",
+                    "dam_name": "Lake Cawndilla",
+                    "date": "2024-11-25",
+                    "storage_volume": 630000.0,
+                    "percentage_full": 99.9,
+                    "storage_inflow": 1750.5,
+                    "storage_release": 1150.3
+                },
+                {
+                    "dam_id": "425046",
+                    "dam_name": "Lake Wetherell",
+                    "date": "2024-11-25",
+                    "storage_volume": 115700.0,
+                    "percentage_full": 99.9,
+                    "storage_inflow": 600.3,
+                    "storage_release": 350.2
+                },
+                {
+                    "dam_id": "425047",
+                    "dam_name": "Lake Tandure",
+                    "date": "2024-11-25",
+                    "storage_volume": 77000.0,
+                    "percentage_full": 99.9,
+                    "storage_inflow": 650.3,
+                    "storage_release": 400.2
+                },
+                {
+                    "dam_id": "42510036",
+                    "dam_name": "Lake Pamamaroo",
+                    "date": "2024-11-25",
+                    "storage_volume": 270000.0,
+                    "percentage_full": 100.0,
+                    "storage_inflow": 750.0,
+                    "storage_release": 450.0
+                },
+                {
+                    "dam_id": "42510037",
+                    "dam_name": "Lake Copi Hollow",
+                    "date": "2024-11-25",
+                    "storage_volume": 7700.0,
+                    "percentage_full": 99.9,
+                    "storage_inflow": 700.0,
+                    "storage_release": 400.2
+                }
+            ],
+            "meta": {
+                "page": 1,
+                "per_page": 50,
+                "pages": 1,
+                "total": 36
             },
-            {
-                "dam_id": "210097",
-                "dam_name": "Glenbawn Dam",
-                "date": "2024-11-25",
-                "storage_volume": 730000.0,
-                "percentage_full": 97.45,
-                "storage_inflow": 2200.2,
-                "storage_release": 1600.0
-            },
-            {
-                "dam_id": "210102",
-                "dam_name": "Lostock Dam",
-                "date": "2024-11-25",
-                "storage_volume": 19500.0,
-                "percentage_full": 98.77,
-                "storage_inflow": 600.0,
-                "storage_release": 350.8
-            },
-            {
-                "dam_id": "210117",
-                "dam_name": "Glennies Creek Dam",
-                "date": "2024-11-25",
-                "storage_volume": 280000.0,
-                "percentage_full": 99.5,
-                "storage_inflow": 1800.5,
-                "storage_release": 1300.3
-            },
-            {
-                "dam_id": "212205",
-                "dam_name": "Nepean Dam",
-                "date": "2024-11-25",
-                "storage_volume": 68000.0,
-                "percentage_full": 95.0,
-                "storage_inflow": 1180.7,
-                "storage_release": 790.4
-            },
-            {
-                "dam_id": "212211",
-                "dam_name": "Avon Dam",
-                "date": "2024-11-25",
-                "storage_volume": 140000.0,
-                "percentage_full": 98.0,
-                "storage_inflow": 1150.6,
-                "storage_release": 770.5
-            },
-            {
-                "dam_id": "212212",
-                "dam_name": "Wingecarribee Reservoir",
-                "date": "2024-11-25",
-                "storage_volume": 29500.0,
-                "percentage_full": 99.0,
-                "storage_inflow": 1050.2,
-                "storage_release": 730.0
-            },
-            {
-                "dam_id": "212220",
-                "dam_name": "Cordeaux Dam",
-                "date": "2024-11-25",
-                "storage_volume": 93000.0,
-                "percentage_full": 99.2,
-                "storage_inflow": 1400.0,
-                "storage_release": 800.0
-            },
-            {
-                "dam_id": "212232",
-                "dam_name": "Cataract Dam",
-                "date": "2024-11-25",
-                "storage_volume": 96000.0,
-                "percentage_full": 98.9,
-                "storage_inflow": 1500.5,
-                "storage_release": 820.3
-            },
-            {
-                "dam_id": "212243",
-                "dam_name": "Warragamba Dam",
-                "date": "2024-11-25",
-                "storage_volume": 2064000.0,
-                "percentage_full": 100.0,
-                "storage_inflow": 2500.7,
-                "storage_release": 1800.6
+            "links": {
+                "self": "http://localhost:5001/api/latest_data/?page=1&per_page=50",
+                "next": null,
+                "prev": null
             }
-        ]
+        }
     },
     {
         "url": "http://localhost:5001/api/latest_data/203042",
@@ -211,98 +653,237 @@
         "url": "http://localhost:5001/api/dam_resources",
         "status_code": 200,
         "description": "List all dam resources",
-        "content": [
-            {
-                "resource_id": 1,
-                "dam_id": "203042",
-                "date": "2023-10-01",
-                "storage_volume": 10500.0,
-                "percentage_full": 95.0,
-                "storage_inflow": 480.5,
-                "storage_release": 300.3
+        "content": {
+            "data": [
+                {
+                    "resource_id": 1,
+                    "dam_id": "203042",
+                    "date": "2023-10-01",
+                    "storage_volume": 10500.0,
+                    "percentage_full": 95.0,
+                    "storage_inflow": 480.5,
+                    "storage_release": 300.3
+                },
+                {
+                    "resource_id": 2,
+                    "dam_id": "203042",
+                    "date": "2023-11-01",
+                    "storage_volume": 10600.0,
+                    "percentage_full": 96.0,
+                    "storage_inflow": 500.5,
+                    "storage_release": 310.3
+                },
+                {
+                    "resource_id": 3,
+                    "dam_id": "203042",
+                    "date": "2023-12-01",
+                    "storage_volume": 10700.0,
+                    "percentage_full": 97.0,
+                    "storage_inflow": 520.5,
+                    "storage_release": 320.3
+                },
+                {
+                    "resource_id": 4,
+                    "dam_id": "210097",
+                    "date": "2023-10-01",
+                    "storage_volume": 740000.0,
+                    "percentage_full": 95.0,
+                    "storage_inflow": 2200.2,
+                    "storage_release": 1500.0
+                },
+                {
+                    "resource_id": 5,
+                    "dam_id": "210097",
+                    "date": "2023-11-01",
+                    "storage_volume": 745000.0,
+                    "percentage_full": 96.0,
+                    "storage_inflow": 2250.2,
+                    "storage_release": 1550.0
+                },
+                {
+                    "resource_id": 6,
+                    "dam_id": "210097",
+                    "date": "2023-12-01",
+                    "storage_volume": 750000.0,
+                    "percentage_full": 97.0,
+                    "storage_inflow": 2300.2,
+                    "storage_release": 1600.0
+                },
+                {
+                    "resource_id": 7,
+                    "dam_id": "210102",
+                    "date": "2023-10-01",
+                    "storage_volume": 19500.0,
+                    "percentage_full": 96.0,
+                    "storage_inflow": 600.0,
+                    "storage_release": 350.8
+                },
+                {
+                    "resource_id": 8,
+                    "dam_id": "210102",
+                    "date": "2023-11-01",
+                    "storage_volume": 19800.0,
+                    "percentage_full": 97.0,
+                    "storage_inflow": 610.0,
+                    "storage_release": 360.8
+                },
+                {
+                    "resource_id": 9,
+                    "dam_id": "210102",
+                    "date": "2023-12-01",
+                    "storage_volume": 20000.0,
+                    "percentage_full": 98.0,
+                    "storage_inflow": 620.0,
+                    "storage_release": 370.8
+                },
+                {
+                    "resource_id": 10,
+                    "dam_id": "212243",
+                    "date": "2023-10-01",
+                    "storage_volume": 2064000.0,
+                    "percentage_full": 98.0,
+                    "storage_inflow": 2500.7,
+                    "storage_release": 1800.6
+                },
+                {
+                    "resource_id": 11,
+                    "dam_id": "212243",
+                    "date": "2023-11-01",
+                    "storage_volume": 2065000.0,
+                    "percentage_full": 99.0,
+                    "storage_inflow": 2520.7,
+                    "storage_release": 1850.6
+                },
+                {
+                    "resource_id": 12,
+                    "dam_id": "212243",
+                    "date": "2023-12-01",
+                    "storage_volume": 2064680.0,
+                    "percentage_full": 100.0,
+                    "storage_inflow": 2550.7,
+                    "storage_release": 1900.6
+                },
+                {
+                    "resource_id": 13,
+                    "dam_id": "410102",
+                    "date": "2023-10-01",
+                    "storage_volume": 1600000.0,
+                    "percentage_full": 98.0,
+                    "storage_inflow": 2000.5,
+                    "storage_release": 1500.3
+                },
+                {
+                    "resource_id": 14,
+                    "dam_id": "410102",
+                    "date": "2023-11-01",
+                    "storage_volume": 1602000.0,
+                    "percentage_full": 98.5,
+                    "storage_inflow": 2010.5,
+                    "storage_release": 1510.3
+                },
+                {
+                    "resource_id": 15,
+                    "dam_id": "410102",
+                    "date": "2023-12-01",
+                    "storage_volume": 1604010.0,
+                    "percentage_full": 99.0,
+                    "storage_inflow": 2020.5,
+                    "storage_release": 1520.3
+                },
+                {
+                    "resource_id": 16,
+                    "dam_id": "410131",
+                    "date": "2023-10-01",
+                    "storage_volume": 1024000.0,
+                    "percentage_full": 98.0,
+                    "storage_inflow": 2050.8,
+                    "storage_release": 1520.3
+                },
+                {
+                    "resource_id": 17,
+                    "dam_id": "410131",
+                    "date": "2023-11-01",
+                    "storage_volume": 1025000.0,
+                    "percentage_full": 98.5,
+                    "storage_inflow": 2060.8,
+                    "storage_release": 1530.3
+                },
+                {
+                    "resource_id": 18,
+                    "dam_id": "410131",
+                    "date": "2023-12-01",
+                    "storage_volume": 1024750.0,
+                    "percentage_full": 99.0,
+                    "storage_inflow": 2070.8,
+                    "storage_release": 1540.3
+                },
+                {
+                    "resource_id": 19,
+                    "dam_id": "412010",
+                    "date": "2023-10-01",
+                    "storage_volume": 1217000.0,
+                    "percentage_full": 98.0,
+                    "storage_inflow": 2100.6,
+                    "storage_release": 1550.5
+                },
+                {
+                    "resource_id": 20,
+                    "dam_id": "412010",
+                    "date": "2023-11-01",
+                    "storage_volume": 1218000.0,
+                    "percentage_full": 98.5,
+                    "storage_inflow": 2110.6,
+                    "storage_release": 1560.5
+                },
+                {
+                    "resource_id": 21,
+                    "dam_id": "412010",
+                    "date": "2023-12-01",
+                    "storage_volume": 1217035.0,
+                    "percentage_full": 99.0,
+                    "storage_inflow": 2120.6,
+                    "storage_release": 1570.5
+                },
+                {
+                    "resource_id": 22,
+                    "dam_id": "42510037",
+                    "date": "2023-10-01",
+                    "storage_volume": 7600.0,
+                    "percentage_full": 95.0,
+                    "storage_inflow": 700.0,
+                    "storage_release": 400.2
+                },
+                {
+                    "resource_id": 23,
+                    "dam_id": "42510037",
+                    "date": "2023-11-01",
+                    "storage_volume": 7650.0,
+                    "percentage_full": 96.0,
+                    "storage_inflow": 710.0,
+                    "storage_release": 410.2
+                },
+                {
+                    "resource_id": 24,
+                    "dam_id": "42510037",
+                    "date": "2023-12-01",
+                    "storage_volume": 7729.0,
+                    "percentage_full": 99.9,
+                    "storage_inflow": 700.0,
+                    "storage_release": 400.2
+                }
+            ],
+            "meta": {
+                "page": 1,
+                "per_page": 50,
+                "pages": 1,
+                "total": 24
             },
-            {
-                "resource_id": 2,
-                "dam_id": "203042",
-                "date": "2023-11-01",
-                "storage_volume": 10600.0,
-                "percentage_full": 96.0,
-                "storage_inflow": 500.5,
-                "storage_release": 310.3
-            },
-            {
-                "resource_id": 3,
-                "dam_id": "203042",
-                "date": "2023-12-01",
-                "storage_volume": 10700.0,
-                "percentage_full": 97.0,
-                "storage_inflow": 520.5,
-                "storage_release": 320.3
-            },
-            {
-                "resource_id": 4,
-                "dam_id": "210097",
-                "date": "2023-10-01",
-                "storage_volume": 740000.0,
-                "percentage_full": 95.0,
-                "storage_inflow": 2200.2,
-                "storage_release": 1500.0
-            },
-            {
-                "resource_id": 5,
-                "dam_id": "210097",
-                "date": "2023-11-01",
-                "storage_volume": 745000.0,
-                "percentage_full": 96.0,
-                "storage_inflow": 2250.2,
-                "storage_release": 1550.0
-            },
-            {
-                "resource_id": 6,
-                "dam_id": "210097",
-                "date": "2023-12-01",
-                "storage_volume": 750000.0,
-                "percentage_full": 97.0,
-                "storage_inflow": 2300.2,
-                "storage_release": 1600.0
-            },
-            {
-                "resource_id": 7,
-                "dam_id": "210102",
-                "date": "2023-10-01",
-                "storage_volume": 19500.0,
-                "percentage_full": 96.0,
-                "storage_inflow": 600.0,
-                "storage_release": 350.8
-            },
-            {
-                "resource_id": 8,
-                "dam_id": "210102",
-                "date": "2023-11-01",
-                "storage_volume": 19800.0,
-                "percentage_full": 97.0,
-                "storage_inflow": 610.0,
-                "storage_release": 360.8
-            },
-            {
-                "resource_id": 9,
-                "dam_id": "210102",
-                "date": "2023-12-01",
-                "storage_volume": 20000.0,
-                "percentage_full": 98.0,
-                "storage_inflow": 620.0,
-                "storage_release": 370.8
-            },
-            {
-                "resource_id": 10,
-                "dam_id": "212243",
-                "date": "2023-10-01",
-                "storage_volume": 2064000.0,
-                "percentage_full": 98.0,
-                "storage_inflow": 2500.7,
-                "storage_release": 1800.6
+            "links": {
+                "self": "http://localhost:5001/api/dam_resources/?page=1&per_page=50",
+                "next": null,
+                "prev": null
             }
-        ]
+        }
     },
     {
         "url": "http://localhost:5001/api/dam_resources/1",
@@ -322,181 +903,220 @@
         "url": "http://localhost:5001/api/specific_dam_analysis",
         "status_code": 200,
         "description": "List all specific dam analyses",
-        "content": [
-            {
-                "dam_id": "203042",
-                "analysis_date": "2024-11-01",
-                "avg_storage_volume_12_months": 10500.0,
-                "avg_storage_volume_5_years": 10300.0,
-                "avg_storage_volume_20_years": 10000.0,
-                "avg_percentage_full_12_months": 97.0,
-                "avg_percentage_full_5_years": 95.0,
-                "avg_percentage_full_20_years": 93.0,
-                "avg_storage_inflow_12_months": 500.5,
-                "avg_storage_inflow_5_years": 480.5,
-                "avg_storage_inflow_20_years": 460.5,
-                "avg_storage_release_12_months": 300.3,
-                "avg_storage_release_5_years": 290.3,
-                "avg_storage_release_20_years": 280.3
+        "content": {
+            "data": [
+                {
+                    "dam_id": "203042",
+                    "analysis_date": "2024-11-01",
+                    "avg_storage_volume_12_months": 10500.0,
+                    "avg_storage_volume_5_years": 10300.0,
+                    "avg_storage_volume_20_years": 10000.0,
+                    "avg_percentage_full_12_months": 97.0,
+                    "avg_percentage_full_5_years": 95.0,
+                    "avg_percentage_full_20_years": 93.0,
+                    "avg_storage_inflow_12_months": 500.5,
+                    "avg_storage_inflow_5_years": 480.5,
+                    "avg_storage_inflow_20_years": 460.5,
+                    "avg_storage_release_12_months": 300.3,
+                    "avg_storage_release_5_years": 290.3,
+                    "avg_storage_release_20_years": 280.3
+                },
+                {
+                    "dam_id": "210097",
+                    "analysis_date": "2024-11-01",
+                    "avg_storage_volume_12_months": 730000.0,
+                    "avg_storage_volume_5_years": 720000.0,
+                    "avg_storage_volume_20_years": 700000.0,
+                    "avg_percentage_full_12_months": 97.45,
+                    "avg_percentage_full_5_years": 95.0,
+                    "avg_percentage_full_20_years": 93.0,
+                    "avg_storage_inflow_12_months": 2200.2,
+                    "avg_storage_inflow_5_years": 2100.2,
+                    "avg_storage_inflow_20_years": 2000.2,
+                    "avg_storage_release_12_months": 1600.0,
+                    "avg_storage_release_5_years": 1500.0,
+                    "avg_storage_release_20_years": 1400.0
+                },
+                {
+                    "dam_id": "210102",
+                    "analysis_date": "2024-11-01",
+                    "avg_storage_volume_12_months": 19500.0,
+                    "avg_storage_volume_5_years": 19000.0,
+                    "avg_storage_volume_20_years": 18500.0,
+                    "avg_percentage_full_12_months": 98.77,
+                    "avg_percentage_full_5_years": 96.0,
+                    "avg_percentage_full_20_years": 94.0,
+                    "avg_storage_inflow_12_months": 600.0,
+                    "avg_storage_inflow_5_years": 580.0,
+                    "avg_storage_inflow_20_years": 560.0,
+                    "avg_storage_release_12_months": 350.8,
+                    "avg_storage_release_5_years": 340.8,
+                    "avg_storage_release_20_years": 330.8
+                },
+                {
+                    "dam_id": "210117",
+                    "analysis_date": "2024-11-01",
+                    "avg_storage_volume_12_months": 282303.0,
+                    "avg_storage_volume_5_years": 275000.0,
+                    "avg_storage_volume_20_years": 260000.0,
+                    "avg_percentage_full_12_months": 99.5,
+                    "avg_percentage_full_5_years": 97.0,
+                    "avg_percentage_full_20_years": 95.0,
+                    "avg_storage_inflow_12_months": 1800.5,
+                    "avg_storage_inflow_5_years": 1750.5,
+                    "avg_storage_inflow_20_years": 1700.5,
+                    "avg_storage_release_12_months": 1300.3,
+                    "avg_storage_release_5_years": 1250.3,
+                    "avg_storage_release_20_years": 1200.3
+                },
+                {
+                    "dam_id": "212243",
+                    "analysis_date": "2024-11-01",
+                    "avg_storage_volume_12_months": 2064680.0,
+                    "avg_storage_volume_5_years": 2050000.0,
+                    "avg_storage_volume_20_years": 2000000.0,
+                    "avg_percentage_full_12_months": 100.0,
+                    "avg_percentage_full_5_years": 98.0,
+                    "avg_percentage_full_20_years": 96.0,
+                    "avg_storage_inflow_12_months": 2500.7,
+                    "avg_storage_inflow_5_years": 2400.7,
+                    "avg_storage_inflow_20_years": 2300.7,
+                    "avg_storage_release_12_months": 1800.6,
+                    "avg_storage_release_5_years": 1700.6,
+                    "avg_storage_release_20_years": 1600.6
+                },
+                {
+                    "dam_id": "410102",
+                    "analysis_date": "2024-11-01",
+                    "avg_storage_volume_12_months": 1603000.0,
+                    "avg_storage_volume_5_years": 1580000.0,
+                    "avg_storage_volume_20_years": 1550000.0,
+                    "avg_percentage_full_12_months": 99.9,
+                    "avg_percentage_full_5_years": 98.0,
+                    "avg_percentage_full_20_years": 96.0,
+                    "avg_storage_inflow_12_months": 2000.5,
+                    "avg_storage_inflow_5_years": 1950.5,
+                    "avg_storage_inflow_20_years": 1900.5,
+                    "avg_storage_release_12_months": 1500.3,
+                    "avg_storage_release_5_years": 1450.3,
+                    "avg_storage_release_20_years": 1400.3
+                },
+                {
+                    "dam_id": "410131",
+                    "analysis_date": "2024-11-01",
+                    "avg_storage_volume_12_months": 1024750.0,
+                    "avg_storage_volume_5_years": 1010000.0,
+                    "avg_storage_volume_20_years": 990000.0,
+                    "avg_percentage_full_12_months": 99.0,
+                    "avg_percentage_full_5_years": 98.0,
+                    "avg_percentage_full_20_years": 97.0,
+                    "avg_storage_inflow_12_months": 2070.8,
+                    "avg_storage_inflow_5_years": 2050.8,
+                    "avg_storage_inflow_20_years": 2030.8,
+                    "avg_storage_release_12_months": 1540.3,
+                    "avg_storage_release_5_years": 1520.3,
+                    "avg_storage_release_20_years": 1500.3
+                },
+                {
+                    "dam_id": "412010",
+                    "analysis_date": "2024-11-01",
+                    "avg_storage_volume_12_months": 1217035.0,
+                    "avg_storage_volume_5_years": 1200000.0,
+                    "avg_storage_volume_20_years": 1180000.0,
+                    "avg_percentage_full_12_months": 99.0,
+                    "avg_percentage_full_5_years": 98.0,
+                    "avg_percentage_full_20_years": 96.0,
+                    "avg_storage_inflow_12_months": 2120.6,
+                    "avg_storage_inflow_5_years": 2100.6,
+                    "avg_storage_inflow_20_years": 2080.6,
+                    "avg_storage_release_12_months": 1570.5,
+                    "avg_storage_release_5_years": 1550.5,
+                    "avg_storage_release_20_years": 1530.5
+                },
+                {
+                    "dam_id": "412107",
+                    "analysis_date": "2024-11-01",
+                    "avg_storage_volume_12_months": 30000.0,
+                    "avg_storage_volume_5_years": 29500.0,
+                    "avg_storage_volume_20_years": 29000.0,
+                    "avg_percentage_full_12_months": 99.8,
+                    "avg_percentage_full_5_years": 98.5,
+                    "avg_percentage_full_20_years": 97.0,
+                    "avg_storage_inflow_12_months": 620.1,
+                    "avg_storage_inflow_5_years": 610.1,
+                    "avg_storage_inflow_20_years": 600.1,
+                    "avg_storage_release_12_months": 360.9,
+                    "avg_storage_release_5_years": 350.9,
+                    "avg_storage_release_20_years": 340.9
+                }
+            ],
+            "meta": {
+                "page": 1,
+                "per_page": 50,
+                "pages": 1,
+                "total": 9
             },
-            {
-                "dam_id": "210097",
-                "analysis_date": "2024-11-01",
-                "avg_storage_volume_12_months": 730000.0,
-                "avg_storage_volume_5_years": 720000.0,
-                "avg_storage_volume_20_years": 700000.0,
-                "avg_percentage_full_12_months": 97.45,
-                "avg_percentage_full_5_years": 95.0,
-                "avg_percentage_full_20_years": 93.0,
-                "avg_storage_inflow_12_months": 2200.2,
-                "avg_storage_inflow_5_years": 2100.2,
-                "avg_storage_inflow_20_years": 2000.2,
-                "avg_storage_release_12_months": 1600.0,
-                "avg_storage_release_5_years": 1500.0,
-                "avg_storage_release_20_years": 1400.0
-            },
-            {
-                "dam_id": "210102",
-                "analysis_date": "2024-11-01",
-                "avg_storage_volume_12_months": 19500.0,
-                "avg_storage_volume_5_years": 19000.0,
-                "avg_storage_volume_20_years": 18500.0,
-                "avg_percentage_full_12_months": 98.77,
-                "avg_percentage_full_5_years": 96.0,
-                "avg_percentage_full_20_years": 94.0,
-                "avg_storage_inflow_12_months": 600.0,
-                "avg_storage_inflow_5_years": 580.0,
-                "avg_storage_inflow_20_years": 560.0,
-                "avg_storage_release_12_months": 350.8,
-                "avg_storage_release_5_years": 340.8,
-                "avg_storage_release_20_years": 330.8
-            },
-            {
-                "dam_id": "210117",
-                "analysis_date": "2024-11-01",
-                "avg_storage_volume_12_months": 282303.0,
-                "avg_storage_volume_5_years": 275000.0,
-                "avg_storage_volume_20_years": 260000.0,
-                "avg_percentage_full_12_months": 99.5,
-                "avg_percentage_full_5_years": 97.0,
-                "avg_percentage_full_20_years": 95.0,
-                "avg_storage_inflow_12_months": 1800.5,
-                "avg_storage_inflow_5_years": 1750.5,
-                "avg_storage_inflow_20_years": 1700.5,
-                "avg_storage_release_12_months": 1300.3,
-                "avg_storage_release_5_years": 1250.3,
-                "avg_storage_release_20_years": 1200.3
-            },
-            {
-                "dam_id": "212243",
-                "analysis_date": "2024-11-01",
-                "avg_storage_volume_12_months": 2064680.0,
-                "avg_storage_volume_5_years": 2050000.0,
-                "avg_storage_volume_20_years": 2000000.0,
-                "avg_percentage_full_12_months": 100.0,
-                "avg_percentage_full_5_years": 98.0,
-                "avg_percentage_full_20_years": 96.0,
-                "avg_storage_inflow_12_months": 2500.7,
-                "avg_storage_inflow_5_years": 2400.7,
-                "avg_storage_inflow_20_years": 2300.7,
-                "avg_storage_release_12_months": 1800.6,
-                "avg_storage_release_5_years": 1700.6,
-                "avg_storage_release_20_years": 1600.6
-            },
-            {
-                "dam_id": "410102",
-                "analysis_date": "2024-11-01",
-                "avg_storage_volume_12_months": 1603000.0,
-                "avg_storage_volume_5_years": 1580000.0,
-                "avg_storage_volume_20_years": 1550000.0,
-                "avg_percentage_full_12_months": 99.9,
-                "avg_percentage_full_5_years": 98.0,
-                "avg_percentage_full_20_years": 96.0,
-                "avg_storage_inflow_12_months": 2000.5,
-                "avg_storage_inflow_5_years": 1950.5,
-                "avg_storage_inflow_20_years": 1900.5,
-                "avg_storage_release_12_months": 1500.3,
-                "avg_storage_release_5_years": 1450.3,
-                "avg_storage_release_20_years": 1400.3
-            },
-            {
-                "dam_id": "410131",
-                "analysis_date": "2024-11-01",
-                "avg_storage_volume_12_months": 1024750.0,
-                "avg_storage_volume_5_years": 1010000.0,
-                "avg_storage_volume_20_years": 990000.0,
-                "avg_percentage_full_12_months": 99.0,
-                "avg_percentage_full_5_years": 98.0,
-                "avg_percentage_full_20_years": 97.0,
-                "avg_storage_inflow_12_months": 2070.8,
-                "avg_storage_inflow_5_years": 2050.8,
-                "avg_storage_inflow_20_years": 2030.8,
-                "avg_storage_release_12_months": 1540.3,
-                "avg_storage_release_5_years": 1520.3,
-                "avg_storage_release_20_years": 1500.3
-            },
-            {
-                "dam_id": "412010",
-                "analysis_date": "2024-11-01",
-                "avg_storage_volume_12_months": 1217035.0,
-                "avg_storage_volume_5_years": 1200000.0,
-                "avg_storage_volume_20_years": 1180000.0,
-                "avg_percentage_full_12_months": 99.0,
-                "avg_percentage_full_5_years": 98.0,
-                "avg_percentage_full_20_years": 96.0,
-                "avg_storage_inflow_12_months": 2120.6,
-                "avg_storage_inflow_5_years": 2100.6,
-                "avg_storage_inflow_20_years": 2080.6,
-                "avg_storage_release_12_months": 1570.5,
-                "avg_storage_release_5_years": 1550.5,
-                "avg_storage_release_20_years": 1530.5
-            },
-            {
-                "dam_id": "412107",
-                "analysis_date": "2024-11-01",
-                "avg_storage_volume_12_months": 30000.0,
-                "avg_storage_volume_5_years": 29500.0,
-                "avg_storage_volume_20_years": 29000.0,
-                "avg_percentage_full_12_months": 99.8,
-                "avg_percentage_full_5_years": 98.5,
-                "avg_percentage_full_20_years": 97.0,
-                "avg_storage_inflow_12_months": 620.1,
-                "avg_storage_inflow_5_years": 610.1,
-                "avg_storage_inflow_20_years": 600.1,
-                "avg_storage_release_12_months": 360.9,
-                "avg_storage_release_5_years": 350.9,
-                "avg_storage_release_20_years": 340.9
+            "links": {
+                "self": "http://localhost:5001/api/specific_dam_analysis/?page=1&per_page=50",
+                "next": null,
+                "prev": null
             }
-        ]
+        }
     },
     {
         "url": "http://localhost:5001/api/specific_dam_analysis/203042",
         "status_code": 200,
         "description": "Get specific dam analyses by dam ID",
-        "content": [
-            {
-                "dam_id": "203042",
-                "analysis_date": "2024-11-01",
-                "avg_storage_volume_12_months": 10500.0,
-                "avg_storage_volume_5_years": 10300.0,
-                "avg_storage_volume_20_years": 10000.0,
-                "avg_percentage_full_12_months": 97.0,
-                "avg_percentage_full_5_years": 95.0,
-                "avg_percentage_full_20_years": 93.0,
-                "avg_storage_inflow_12_months": 500.5,
-                "avg_storage_inflow_5_years": 480.5,
-                "avg_storage_inflow_20_years": 460.5,
-                "avg_storage_release_12_months": 300.3,
-                "avg_storage_release_5_years": 290.3,
-                "avg_storage_release_20_years": 280.3
+        "content": {
+            "data": [
+                {
+                    "dam_id": "203042",
+                    "analysis_date": "2024-11-01",
+                    "avg_storage_volume_12_months": 10500.0,
+                    "avg_storage_volume_5_years": 10300.0,
+                    "avg_storage_volume_20_years": 10000.0,
+                    "avg_percentage_full_12_months": 97.0,
+                    "avg_percentage_full_5_years": 95.0,
+                    "avg_percentage_full_20_years": 93.0,
+                    "avg_storage_inflow_12_months": 500.5,
+                    "avg_storage_inflow_5_years": 480.5,
+                    "avg_storage_inflow_20_years": 460.5,
+                    "avg_storage_release_12_months": 300.3,
+                    "avg_storage_release_5_years": 290.3,
+                    "avg_storage_release_20_years": 280.3
+                }
+            ],
+            "meta": {
+                "page": 1,
+                "per_page": 50,
+                "pages": 1,
+                "total": 1
+            },
+            "links": {
+                "self": "http://localhost:5001/api/specific_dam_analysis/203042?page=1&per_page=50",
+                "next": null,
+                "prev": null
             }
-        ]
+        }
     },
     {
         "url": "http://localhost:5001/api/overall_dam_analysis",
         "status_code": 200,
         "description": "List all overall dam analyses",
-        "content": []
+        "content": {
+            "data": [],
+            "meta": {
+                "page": 1,
+                "per_page": 50,
+                "pages": 0,
+                "total": 0
+            },
+            "links": {
+                "self": "http://localhost:5001/api/overall_dam_analysis/?page=1&per_page=50",
+                "next": null,
+                "prev": null
+            }
+        }
     },
     {
         "url": "http://localhost:5001/api/overall_dam_analysis/2023-01-01",
@@ -508,23 +1128,36 @@
         "url": "http://localhost:5001/api/dam_groups",
         "status_code": 200,
         "description": "List all dam groups",
-        "content": [
-            {
-                "group_name": "greatest_released"
+        "content": {
+            "data": [
+                {
+                    "group_name": "greatest_released"
+                },
+                {
+                    "group_name": "large_dams"
+                },
+                {
+                    "group_name": "popular_dams"
+                },
+                {
+                    "group_name": "small_dams"
+                },
+                {
+                    "group_name": "sydney_dams"
+                }
+            ],
+            "meta": {
+                "page": 1,
+                "per_page": 50,
+                "pages": 1,
+                "total": 5
             },
-            {
-                "group_name": "large_dams"
-            },
-            {
-                "group_name": "popular_dams"
-            },
-            {
-                "group_name": "small_dams"
-            },
-            {
-                "group_name": "sydney_dams"
+            "links": {
+                "self": "http://localhost:5001/api/dam_groups/?page=1&per_page=50",
+                "next": null,
+                "prev": null
             }
-        ]
+        }
     },
     {
         "url": "http://localhost:5001/api/dam_groups/small_dams",
@@ -538,86 +1171,232 @@
         "url": "http://localhost:5001/api/dam_group_members",
         "status_code": 200,
         "description": "List all dam group members",
-        "content": [
-            {
-                "group_name": "small_dams",
-                "dam_id": "203042"
+        "content": {
+            "data": [
+                {
+                    "group_name": "small_dams",
+                    "dam_id": "203042"
+                },
+                {
+                    "group_name": "greatest_released",
+                    "dam_id": "210097"
+                },
+                {
+                    "group_name": "large_dams",
+                    "dam_id": "210097"
+                },
+                {
+                    "group_name": "small_dams",
+                    "dam_id": "210102"
+                },
+                {
+                    "group_name": "greatest_released",
+                    "dam_id": "210117"
+                },
+                {
+                    "group_name": "popular_dams",
+                    "dam_id": "212205"
+                },
+                {
+                    "group_name": "sydney_dams",
+                    "dam_id": "212205"
+                },
+                {
+                    "group_name": "popular_dams",
+                    "dam_id": "212211"
+                },
+                {
+                    "group_name": "sydney_dams",
+                    "dam_id": "212211"
+                },
+                {
+                    "group_name": "sydney_dams",
+                    "dam_id": "212212"
+                },
+                {
+                    "group_name": "popular_dams",
+                    "dam_id": "212220"
+                },
+                {
+                    "group_name": "sydney_dams",
+                    "dam_id": "212220"
+                },
+                {
+                    "group_name": "popular_dams",
+                    "dam_id": "212232"
+                },
+                {
+                    "group_name": "sydney_dams",
+                    "dam_id": "212232"
+                },
+                {
+                    "group_name": "large_dams",
+                    "dam_id": "212243"
+                },
+                {
+                    "group_name": "popular_dams",
+                    "dam_id": "212243"
+                },
+                {
+                    "group_name": "popular_dams",
+                    "dam_id": "213210"
+                },
+                {
+                    "group_name": "sydney_dams",
+                    "dam_id": "213210"
+                },
+                {
+                    "group_name": "popular_dams",
+                    "dam_id": "213240"
+                },
+                {
+                    "group_name": "sydney_dams",
+                    "dam_id": "213240"
+                },
+                {
+                    "group_name": "popular_dams",
+                    "dam_id": "215212"
+                },
+                {
+                    "group_name": "small_dams",
+                    "dam_id": "215212"
+                },
+                {
+                    "group_name": "small_dams",
+                    "dam_id": "215235"
+                },
+                {
+                    "group_name": "sydney_dams",
+                    "dam_id": "215235"
+                },
+                {
+                    "group_name": "small_dams",
+                    "dam_id": "219027"
+                },
+                {
+                    "group_name": "small_dams",
+                    "dam_id": "219033"
+                },
+                {
+                    "group_name": "greatest_released",
+                    "dam_id": "410102"
+                },
+                {
+                    "group_name": "large_dams",
+                    "dam_id": "410102"
+                },
+                {
+                    "group_name": "greatest_released",
+                    "dam_id": "410131"
+                },
+                {
+                    "group_name": "large_dams",
+                    "dam_id": "410131"
+                },
+                {
+                    "group_name": "greatest_released",
+                    "dam_id": "412010"
+                },
+                {
+                    "group_name": "large_dams",
+                    "dam_id": "412010"
+                },
+                {
+                    "group_name": "small_dams",
+                    "dam_id": "412107"
+                },
+                {
+                    "group_name": "greatest_released",
+                    "dam_id": "418035"
+                },
+                {
+                    "group_name": "large_dams",
+                    "dam_id": "418035"
+                },
+                {
+                    "group_name": "greatest_released",
+                    "dam_id": "419041"
+                },
+                {
+                    "group_name": "large_dams",
+                    "dam_id": "419080"
+                },
+                {
+                    "group_name": "greatest_released",
+                    "dam_id": "421078"
+                },
+                {
+                    "group_name": "large_dams",
+                    "dam_id": "421078"
+                },
+                {
+                    "group_name": "small_dams",
+                    "dam_id": "42510037"
+                }
+            ],
+            "meta": {
+                "page": 1,
+                "per_page": 50,
+                "pages": 1,
+                "total": 40
             },
-            {
-                "group_name": "greatest_released",
-                "dam_id": "210097"
-            },
-            {
-                "group_name": "large_dams",
-                "dam_id": "210097"
-            },
-            {
-                "group_name": "small_dams",
-                "dam_id": "210102"
-            },
-            {
-                "group_name": "greatest_released",
-                "dam_id": "210117"
-            },
-            {
-                "group_name": "popular_dams",
-                "dam_id": "212205"
-            },
-            {
-                "group_name": "sydney_dams",
-                "dam_id": "212205"
-            },
-            {
-                "group_name": "popular_dams",
-                "dam_id": "212211"
-            },
-            {
-                "group_name": "sydney_dams",
-                "dam_id": "212211"
-            },
-            {
-                "group_name": "sydney_dams",
-                "dam_id": "212212"
+            "links": {
+                "self": "http://localhost:5001/api/dam_group_members/?page=1&per_page=50",
+                "next": null,
+                "prev": null
             }
-        ]
+        }
     },
     {
         "url": "http://localhost:5001/api/dam_group_members/small_dams",
         "status_code": 200,
         "description": "Get members by group name",
-        "content": [
-            {
-                "group_name": "small_dams",
-                "dam_id": "203042"
+        "content": {
+            "data": [
+                {
+                    "group_name": "small_dams",
+                    "dam_id": "203042"
+                },
+                {
+                    "group_name": "small_dams",
+                    "dam_id": "210102"
+                },
+                {
+                    "group_name": "small_dams",
+                    "dam_id": "215212"
+                },
+                {
+                    "group_name": "small_dams",
+                    "dam_id": "215235"
+                },
+                {
+                    "group_name": "small_dams",
+                    "dam_id": "219027"
+                },
+                {
+                    "group_name": "small_dams",
+                    "dam_id": "219033"
+                },
+                {
+                    "group_name": "small_dams",
+                    "dam_id": "412107"
+                },
+                {
+                    "group_name": "small_dams",
+                    "dam_id": "42510037"
+                }
+            ],
+            "meta": {
+                "page": 1,
+                "per_page": 50,
+                "pages": 1,
+                "total": 8
             },
-            {
-                "group_name": "small_dams",
-                "dam_id": "210102"
-            },
-            {
-                "group_name": "small_dams",
-                "dam_id": "215212"
-            },
-            {
-                "group_name": "small_dams",
-                "dam_id": "215235"
-            },
-            {
-                "group_name": "small_dams",
-                "dam_id": "219027"
-            },
-            {
-                "group_name": "small_dams",
-                "dam_id": "219033"
-            },
-            {
-                "group_name": "small_dams",
-                "dam_id": "412107"
-            },
-            {
-                "group_name": "small_dams",
-                "dam_id": "42510037"
+            "links": {
+                "self": "http://localhost:5001/api/dam_group_members/small_dams?page=1&per_page=50",
+                "next": null,
+                "prev": null
             }
-        ]
+        }
     }
 ]
