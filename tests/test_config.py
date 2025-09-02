@@ -11,6 +11,5 @@ def test_config_validate_raises_when_missing(monkeypatch):
         Config.validate()
 
 def test_docs_mounts(client):
-    # Swagger UI redirects; ensure route exists
     resp = client.get("/api/docs")
     assert resp.status_code in (200, 301, 302)

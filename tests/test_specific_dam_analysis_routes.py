@@ -3,11 +3,15 @@
 def test_specific_list(client, seed_minimal):
     r = client.get("/api/specific_dam_analysis/")
     assert r.status_code == 200
+    data = r.get_json()
+    assert isinstance(data, list)
 
 def test_specific_by_dam_ok(client, seed_minimal):
     r = client.get("/api/specific_dam_analysis/WORONOR")
     assert r.status_code == 200
-    assert len(r.get_json()["data"]) >= 1
+    data = r.get_json()
+    assert isinstance(data, list)
+    assert len(data) >= 1
 
 def test_specific_by_dam_404(client):
     r = client.get("/api/specific_dam_analysis/NOPE")

@@ -5,37 +5,28 @@ import importlib
 import pytest
 from datetime import date
 
-# Ensure project root is importable (contains the 'app/' package)
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 TEST_DB_URI = "sqlite:///:memory:"
 
 @pytest.fixture(scope="session")
 def app():
-    """
-    Create a single Flask app for the entire test session.
-    The database schema is created here once; tests will reset it via `reset_db`.
-    """
-    # 1) Set env BEFORE importing app/config
     os.environ["SQLALCHEMY_DATABASE_URI"] = TEST_DB_URI
     os.environ["DEBUG"] = "False"
 
-    # 2) Reload config so class-level constants pick up the new env
     import app.config as app_config
     importlib.reload(app_config)
 
-    # Also set the class attributes explicitly (bypasses import-time caching)
     app_config.Config.SQLALCHEMY_DATABASE_URI = TEST_DB_URI
     app_config.Config.DEBUG = False
 
-    # 3) Now import create_app with the fresh Config
     from app import create_app, db as _db
 
     app = create_app()
     app.testing = True
 
     with app.app_context():
-        _db.create_all()  # initial schema for the session
+        _db.create_all()
         yield app
         _db.session.remove()
         _db.drop_all()
@@ -54,23 +45,17 @@ def db(app):
 
 @pytest.fixture()
 def reset_db(app):
-    """
-    Drop and recreate all tables before each test that requires data.
-    This guarantees isolation and prevents PK collisions across tests.
-    """
     from app import db as _db
     with app.app_context():
         _db.session.remove()
         _db.drop_all()
         _db.create_all()
         yield
-        # Optional cleanup after test (not strictly necessary with in-memory DB)
         _db.session.remove()
 
 
 @pytest.fixture()
 def seed_minimal(reset_db, db):
-    """Insert a minimal set of rows for common tests (fresh schema per test)."""
     from app.models import (
         Dam, LatestData, DamResource, SpecificDamAnalysis,
         OverallDamAnalysis, DamGroup, DamGroupMember

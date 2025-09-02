@@ -8,5 +8,5 @@ def test_parse_iso_date_ok():
     assert d.year == 2025 and d.month == 8 and d.day == 1
 
 def test_parse_iso_date_bad():
-    with pytest.raises(Exception):  # BadRequest
+    with pytest.raises(Exception):
         parse_iso_date("2025-13-99")

@@ -3,7 +3,10 @@
 def test_overall_list(client, seed_minimal):
     r = client.get("/api/overall_dam_analysis/")
     assert r.status_code == 200
-    assert "data" in r.get_json()
+    data = r.get_json()
+    assert isinstance(data, list)
+    assert len(data) >= 1
+    assert "analysis_date" in data[0]
 
 def test_overall_detail_ok(client, seed_minimal):
     r = client.get("/api/overall_dam_analysis/2025-08-01")

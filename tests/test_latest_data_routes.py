@@ -3,7 +3,9 @@
 def test_latest_data_list(client, seed_minimal):
     r = client.get("/api/latest_data/")
     assert r.status_code == 200
-    assert len(r.get_json()["data"]) >= 1
+    data = r.get_json()
+    assert isinstance(data, list)
+    assert len(data) >= 1
 
 def test_latest_data_detail_found(client, seed_minimal):
     r = client.get("/api/latest_data/WORONOR")
