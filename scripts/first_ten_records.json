@@ -314,7 +314,23 @@
             "storage_release": 1800.6
         }
     ],
-    "overall_dam_analysis": [],
+    "overall_dam_analysis": [
+        {
+            "analysis_date": "2024-11-25",
+            "avg_storage_volume_12_months": 500000.0,
+            "avg_storage_volume_5_years": 480000.0,
+            "avg_storage_volume_20_years": 450000.0,
+            "avg_percentage_full_12_months": 98.5,
+            "avg_percentage_full_5_years": 96.0,
+            "avg_percentage_full_20_years": 94.0,
+            "avg_storage_inflow_12_months": 1500.0,
+            "avg_storage_inflow_5_years": 1400.0,
+            "avg_storage_inflow_20_years": 1300.0,
+            "avg_storage_release_12_months": 1100.0,
+            "avg_storage_release_5_years": 1000.0,
+            "avg_storage_release_20_years": 900.0
+        }
+    ],
     "specific_dam_analysis": [
         {
             "dam_id": "203042",

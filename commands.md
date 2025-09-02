@@ -22,9 +22,9 @@ python scripts/data_collection_and_export.py
 
 python scripts/test_api_endpoints.py
 
-python scripts/insert_dam_analysis_data.py
+<!-- python scripts/insert_dam_analysis_data.py
 
-python scripts/insert_specific_dam_analysis_data.py
+python scripts/insert_specific_dam_analysis_data.py -->
 
 
 # Documentation
