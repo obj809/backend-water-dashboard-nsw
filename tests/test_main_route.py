@@ -5,5 +5,4 @@ def test_main_welcome_message(client, reset_db):
     assert r.status_code == 200
     data = r.get_json()
     assert isinstance(data, dict)
-    # exact payload defined in app/routes/main.py
     assert data.get("message") == "Welcome to the Dam Management API!"

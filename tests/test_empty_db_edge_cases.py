@@ -1,10 +1,6 @@
 # tests/test_empty_db_edge_cases.py
 
 def _assert_error_payload(data, expected_codes=(404, 400), contains_any=None):
-    """
-    Accept either {"error": {...}} or {"message": "..."} and optionally check
-    that the message contains ANY of the substrings in contains_any.
-    """
     if "error" in data:
         code = data["error"].get("code")
         if code is not None:
@@ -36,11 +32,10 @@ def test_detail_endpoints_404_when_no_data(client, reset_db):
         r = client.get(url)
         assert r.status_code in (404, 400)
         data = r.get_json()
-        # Accept either error shape; match common phrases found across RESTX/global handlers
         _assert_error_payload(
             data,
             expected_codes=(404, 400),
-            contains_any=("not found", "no", "missing", "invalid", "members")  # <- updated
+            contains_any=("not found", "no", "missing", "invalid", "members")
         )
 
 
