@@ -1,0 +1,76 @@
+name: CI
+
+on:
+  push:
+    branches: [ "**" ]
+  pull_request:
+    branches: [ "**" ]
+
+# Prevent overlapping runs on the same branch/PR
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    # If you only want to test on 3.12, keep a single version.
+    # To test multiple versions, uncomment the matrix block below.
+    # strategy:
+    #   fail-fast: false
+    #   matrix:
+    #     python-version: [ "3.10", "3.11", "3.12" ]
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+          cache-dependency-path: |
+            requirements.txt
+            requirements-dev.txt
+            pyproject.toml
+            setup.cfg
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          # If you keep dev tools separate:
+          if [ -f requirements-dev.txt ]; then pip install -r requirements-dev.txt; fi
+          # Ensure pytest + coverage are present even if not pinned:
+          pip install pytest pytest-cov
+
+      # Optional: style checks (uncomment if you use them)
+      # - name: Lint (flake8)
+      #   run: |
+      #     pip install flake8
+      #     flake8 .
+
+      - name: Run tests
+        env:
+          # Do NOT set SQLALCHEMY_DATABASE_URI here; tests manage it.
+          # Keep environment minimal so your config tests behave as intended.
+          PYTHONWARNINGS: ignore::DeprecationWarning
+        run: |
+          pytest -q --cov=app --cov-report=term-missing --cov-report=xml
+
+      - name: Upload coverage artifact
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: coverage-xml
+          path: coverage.xml
+
+      # Optional: publish coverage to Codecov (requires CODECOV_TOKEN secret for private repos)
+      # - name: Upload to Codecov
+      #   uses: codecov/codecov-action@v5
+      #   with:
+      #     token: ${{ secrets.CODECOV_TOKEN }}
+      #     files: coverage.xml
+      #     fail_ci_if_error: false
