@@ -61,93 +61,93 @@
     "dam_resources": [
         {
             "resource_id": 1,
-            "dam_id": "212243",
+            "dam_id": "203042",
             "date": "2023-09-01",
-            "storage_volume": 1878858.8,
-            "percentage_full": 91.0,
-            "storage_inflow": 1018.9,
-            "storage_release": 611.34
+            "storage_volume": 9505.506,
+            "percentage_full": 87.9,
+            "storage_inflow": 900.0,
+            "storage_release": 630.0
         },
         {
             "resource_id": 2,
-            "dam_id": "212243",
+            "dam_id": "203042",
             "date": "2023-10-01",
-            "storage_volume": 1885052.84,
-            "percentage_full": 91.3,
-            "storage_inflow": 1025.2,
-            "storage_release": 666.38
+            "storage_volume": 9543.355,
+            "percentage_full": 88.25,
+            "storage_inflow": 920.0,
+            "storage_release": 644.0
         },
         {
             "resource_id": 3,
-            "dam_id": "212243",
+            "dam_id": "203042",
             "date": "2023-11-01",
-            "storage_volume": 1891246.88,
-            "percentage_full": 91.6,
-            "storage_inflow": 1056.8,
-            "storage_release": 739.76
+            "storage_volume": 9581.204,
+            "percentage_full": 88.6,
+            "storage_inflow": 940.0,
+            "storage_release": 658.0
         },
         {
             "resource_id": 4,
-            "dam_id": "212243",
+            "dam_id": "203042",
             "date": "2023-12-01",
-            "storage_volume": 1897440.92,
-            "percentage_full": 91.9,
-            "storage_inflow": 1068.1,
-            "storage_release": 801.075
+            "storage_volume": 9619.053,
+            "percentage_full": 88.95,
+            "storage_inflow": 960.0,
+            "storage_release": 672.0
         },
         {
             "resource_id": 5,
-            "dam_id": "212243",
+            "dam_id": "203042",
             "date": "2024-01-01",
-            "storage_volume": 1903634.96,
-            "percentage_full": 92.2,
-            "storage_inflow": 1097.8,
-            "storage_release": 878.24
+            "storage_volume": 9656.902,
+            "percentage_full": 89.3,
+            "storage_inflow": 980.0,
+            "storage_release": 686.0
         },
         {
             "resource_id": 6,
-            "dam_id": "212243",
+            "dam_id": "203042",
             "date": "2024-02-01",
-            "storage_volume": 1909829.0,
-            "percentage_full": 92.5,
-            "storage_inflow": 1104.2,
-            "storage_release": 662.52
+            "storage_volume": 9694.751,
+            "percentage_full": 89.65,
+            "storage_inflow": 1000.0,
+            "storage_release": 700.0
         },
         {
             "resource_id": 7,
-            "dam_id": "212243",
+            "dam_id": "203042",
             "date": "2024-03-01",
-            "storage_volume": 1916023.04,
-            "percentage_full": 92.8,
-            "storage_inflow": 1135.9,
-            "storage_release": 738.335
+            "storage_volume": 9732.6,
+            "percentage_full": 90.0,
+            "storage_inflow": 1020.0,
+            "storage_release": 714.0
         },
         {
             "resource_id": 8,
-            "dam_id": "212243",
+            "dam_id": "203042",
             "date": "2024-04-01",
-            "storage_volume": 1922217.08,
-            "percentage_full": 93.1,
-            "storage_inflow": 1152.1,
-            "storage_release": 806.47
+            "storage_volume": 9770.449,
+            "percentage_full": 90.35,
+            "storage_inflow": 1040.0,
+            "storage_release": 728.0
         },
         {
             "resource_id": 9,
-            "dam_id": "212243",
+            "dam_id": "203042",
             "date": "2024-05-01",
-            "storage_volume": 1928411.12,
-            "percentage_full": 93.4,
-            "storage_inflow": 1163.6,
-            "storage_release": 872.7
+            "storage_volume": 9808.298,
+            "percentage_full": 90.7,
+            "storage_inflow": 1060.0,
+            "storage_release": 742.0
         },
         {
             "resource_id": 10,
-            "dam_id": "212243",
+            "dam_id": "203042",
             "date": "2024-06-01",
-            "storage_volume": 1934605.16,
-            "percentage_full": 93.7,
-            "storage_inflow": 1186.7,
-            "storage_release": 949.36
+            "storage_volume": 9846.147,
+            "percentage_full": 91.05,
+            "storage_inflow": 1080.0,
+            "storage_release": 756.0
         }
     ],
     "dams": [
