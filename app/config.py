@@ -4,20 +4,39 @@ import os
 class Config:
     SECRET_KEY = os.getenv('SECRET_KEY', 'default-secret-key')
     DEBUG = os.getenv('DEBUG', 'True') == 'True'
-    SQLALCHEMY_DATABASE_URI = os.getenv('SQLALCHEMY_DATABASE_URI')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+
+    # Database provider selection
+    DB_PROVIDER = os.getenv('DB_PROVIDER', 'local')
+
+    @classmethod
+    def get_database_uri(cls):
+        """Return database URI based on DB_PROVIDER setting."""
+        # Allow direct override
+        if os.getenv('SQLALCHEMY_DATABASE_URI'):
+            return os.getenv('SQLALCHEMY_DATABASE_URI')
+
+        provider = os.getenv('DB_PROVIDER', 'local').lower()
+        if provider == 'supabase':
+            uri = os.getenv('SUPABASE_DATABASE_URI')
+            if not uri:
+                raise ValueError("SUPABASE_DATABASE_URI not set")
+            return uri
+        else:  # default to local
+            uri = os.getenv('LOCAL_DATABASE_URI')
+            if not uri:
+                raise ValueError("LOCAL_DATABASE_URI not set")
+            return uri
 
     @classmethod
     def refresh_from_env(cls):
         cls.DEBUG = os.getenv('DEBUG', 'True') == 'True'
-        cls.SQLALCHEMY_DATABASE_URI = os.getenv('SQLALCHEMY_DATABASE_URI')
+        cls.DB_PROVIDER = os.getenv('DB_PROVIDER', 'local')
+        cls.SQLALCHEMY_DATABASE_URI = cls.get_database_uri()
 
     @classmethod
     def validate(cls):
         cls.refresh_from_env()
-        print("DEBUG (Config): SQLALCHEMY_DATABASE_URI loaded:", cls.SQLALCHEMY_DATABASE_URI)
-        if not cls.SQLALCHEMY_DATABASE_URI:
-            raise ValueError(
-                "SQLALCHEMY_DATABASE_URI is not set. Ensure it's defined in the .env file "
-                "or as an environment variable. Check the .env file's location and syntax."
-            )
+        if cls.DEBUG:
+            print(f"DEBUG (Config): Using {cls.DB_PROVIDER} database")
+            print(f"DEBUG (Config): URI loaded: {cls.SQLALCHEMY_DATABASE_URI[:30]}...")

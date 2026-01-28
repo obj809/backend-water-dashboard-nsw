@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: water-dashboard-api
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn run:app --bind 0.0.0.0:$PORT
+    envVars:
+      - key: DB_PROVIDER
+        value: supabase
+      - key: SUPABASE_DATABASE_URI
+        sync: false
+      - key: DEBUG
+        value: "False"
+      - key: SECRET_KEY
+        generateValue: true
+      - key: PYTHON_VERSION
+        value: "3.11.4"

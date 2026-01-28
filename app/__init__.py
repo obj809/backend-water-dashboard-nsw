@@ -16,7 +16,8 @@ def create_app():
     Config.validate()
     app.config.from_object(Config)
 
-    print("DEBUG (create_app): SQLALCHEMY_DATABASE_URI in config:", app.config.get("SQLALCHEMY_DATABASE_URI"))
+    if Config.DEBUG:
+        print("DEBUG (create_app): SQLALCHEMY_DATABASE_URI in config:", app.config.get("SQLALCHEMY_DATABASE_URI")[:30] + "...")
 
     CORS(app)
     db.init_app(app)

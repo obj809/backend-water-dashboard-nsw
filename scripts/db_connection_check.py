@@ -1,37 +1,39 @@
 # scripts/db_connection_check.py
 
 import os
+import sys
 from sqlalchemy import create_engine, text, inspect
 from dotenv import load_dotenv
 
 load_dotenv()
 
-database_uri = os.getenv("SQLALCHEMY_DATABASE_URI")
-db_user = os.getenv("DB_USER")
-db_password = os.getenv("DB_PASSWORD")
-db_name = os.getenv("DB_NAME")
-db_host = os.getenv("DB_HOST")
-db_port = os.getenv("DB_PORT")
+# Add parent directory to path to import app.config
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from app.config import Config
 
 def print_env_variables():
+    provider = os.getenv("DB_PROVIDER", "local")
     print("Environment Variables:")
-    print(f"SQLALCHEMY_DATABASE_URI: {database_uri}")
-    print(f"DB_USER: {db_user}")
-    print(f"DB_PASSWORD: {db_password}")
-    print(f"DB_NAME: {db_name}")
-    print(f"DB_HOST: {db_host}")
-    print(f"DB_PORT: {db_port}")
+    print(f"DB_PROVIDER: {provider}")
+    if provider == "supabase":
+        uri = os.getenv("SUPABASE_DATABASE_URI", "")
+        # Mask password in output
+        print(f"SUPABASE_DATABASE_URI: {uri[:30]}...") if uri else print("SUPABASE_DATABASE_URI: Not set")
+    else:
+        uri = os.getenv("LOCAL_DATABASE_URI", "")
+        print(f"LOCAL_DATABASE_URI: {uri[:30]}...") if uri else print("LOCAL_DATABASE_URI: Not set")
 
 def check_db_connection_and_tables():
     try:
+        Config.validate()
+        database_uri = Config.SQLALCHEMY_DATABASE_URI
         engine = create_engine(database_uri)
-        
-        with engine.connect() as connection:
-            print("Database connection successful!")
 
-            result = connection.execute(text("SELECT DATABASE();"))
-            current_db = result.fetchone()[0]
-            print(f"Connected to database: {current_db}")
+        with engine.connect() as connection:
+            print("\nDatabase connection successful!")
+
+            result = connection.execute(text("SELECT 1"))
+            print("Database connection verified (SELECT 1 successful)")
 
             inspector = inspect(engine)
             tables = inspector.get_table_names()
@@ -41,7 +43,7 @@ def check_db_connection_and_tables():
                 return
 
             print(f"Tables in the database: {', '.join(tables)}")
-            
+
             for table in tables:
                 print(f"\nFetching data from table: {table}")
                 query = text(f"SELECT * FROM {table} LIMIT 1;")
