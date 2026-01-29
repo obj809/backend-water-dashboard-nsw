@@ -107,9 +107,12 @@ python run.py
 
 ## Contact Me
 
-- LinkedIn: [linkedin.com/in/obj809](https://linkedin.com/in/obj809)
-- GitHub: [github.com/obj809](https://github.com/obj809)
+Visit my [LinkedIn](https://linkedin.com/in/obj809) for more details.
 
----
+Check out my [GitHub](https://github.com/obj809) for more projects.
 
-Copyright 2025 obj809
+Or send me an email at obj809@gmail.com
+
+Thanks for your interest in this project. Feel free to reach out with any thoughts or questions.
+
+Oliver Jenkins © 2025
