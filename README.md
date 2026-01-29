@@ -60,8 +60,6 @@ python run.py
 ## Project Features
 
 - [x] Dam management with CRUD operations and geolocation data
-- [x] Real-time storage level snapshots for all dams
-- [x] Historical time-series data with date filtering
 - [x] Multi-period analysis (12-month, 5-year, 20-year averages)
 - [x] Interactive Swagger UI documentation
 - [x] Automated CI/CD with GitHub Actions
@@ -90,10 +88,6 @@ python run.py
 ### Multi-Database Support
 - **Challenge**: Supporting both MySQL (local) and PostgreSQL (production) with different connection formats.
 - **Solution**: Implemented flexible configuration with `DB_PROVIDER` environment variable and SQLAlchemy's database-agnostic ORM.
-
-### Composite Primary Keys
-- **Challenge**: SpecificDamAnalysis uses composite primary key (dam_id, analysis_date) requiring special Flask-RESTX handling.
-- **Solution**: Created custom route parameters and date parsing utilities for proper database queries.
 
 ## Contact Me
 - Visit my [LinkedIn](https://www.linkedin.com/in/obj809/) for more details.
