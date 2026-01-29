@@ -76,7 +76,6 @@ python run.py
 
 ## Learning Highlights
 - Implementing automatic API documentation with Flask-RESTX and Swagger UI
-- Using Flask's application factory pattern for testing and deployment flexibility
 - Designing complex SQLAlchemy relationships (one-to-one, one-to-many, many-to-many)
 - Building comprehensive pytest test suites with in-memory SQLite for test isolation
 - Implementing multi-database support with environment-based configuration
@@ -84,7 +83,6 @@ python run.py
 ## Known Issues
 
 - Large dataset queries without pagination may cause performance issues
-- CORS configuration currently allows all origins (should be restricted in production)
 
 ## Challenges
 
@@ -98,19 +96,12 @@ python run.py
 
 **Solution**: Created custom route parameters and date parsing utilities for proper database queries.
 
-### Test Isolation
-**Challenge**: Ensuring tests don't interfere with each other and maintaining clean database state.
-
-**Solution**: Used SQLite in-memory database with pytest fixtures for session-scoped app and per-test database resets.
-
 ## Contact Me
-
-Visit my [LinkedIn](https://linkedin.com/in/obj809) for more details.
-
-Check out my [GitHub](https://github.com/obj809) for more projects.
-
-Or send me an email at obj809@gmail.com
-
+- Visit my [LinkedIn](https://www.linkedin.com/in/obj809/) for more details.
+- Check out my [GitHub](https://github.com/cyberforge1) for more projects.
+- Or send me an email at obj809@gmail.com
+<br />
 Thanks for your interest in this project. Feel free to reach out with any thoughts or questions.
-
-Oliver Jenkins © 2025
+<br />
+<br />
+Oliver Jenkins © 2024
