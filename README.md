@@ -7,8 +7,7 @@
 A Flask REST API backend providing dam storage and water resource data for New South Wales, Australia. The API delivers real-time and historical water data including storage levels, inflow/release metrics, and multi-year trend analysis across NSW dam systems.
 
 ## Screenshot
-
-![Swagger Documentation](screenshots/documentation-light.png)
+![Application Screenshot](screenshots/documentation-light.png "Swagger API Documentation")
 
 ## Table of Contents
 - [Goals & MVP](#goals--mvp)
@@ -76,12 +75,11 @@ python run.py
 - [ ] Docker containerization
 
 ## Learning Highlights
-
-- Implemented automatic API documentation with Flask-RESTX and Swagger UI
-- Mastered Flask's application factory pattern for testing and deployment flexibility
-- Designed complex SQLAlchemy relationships (one-to-one, one-to-many, many-to-many)
-- Built comprehensive pytest test suite with in-memory SQLite for test isolation
-- Implemented multi-database support with environment-based configuration switching
+- Implementing automatic API documentation with Flask-RESTX and Swagger UI
+- Using Flask's application factory pattern for testing and deployment flexibility
+- Designing complex SQLAlchemy relationships (one-to-one, one-to-many, many-to-many)
+- Building comprehensive pytest test suites with in-memory SQLite for test isolation
+- Implementing multi-database support with environment-based configuration
 
 ## Known Issues
 
