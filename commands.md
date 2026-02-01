@@ -58,3 +58,10 @@ pytest tests/test_overall_dam_analysis_routes.py
 pytest tests/test_dam_groups_routes.py
 pytest tests/test_dam_group_members_routes.py
 pytest tests/test_specific_dam_analysis_routes.py
+
+
+# Docker
+
+docker compose up --build
+
+docker compose up -d --build
