@@ -65,3 +65,9 @@ pytest tests/test_specific_dam_analysis_routes.py
 docker compose up --build
 
 docker compose up -d --build
+
+# VPS Docker
+
+docker compose down
+
+docker compose up -d
