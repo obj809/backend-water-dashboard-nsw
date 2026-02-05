@@ -1,92 +1,655 @@
 [
     {
         "url": "http://localhost:5001/api/",
-        "status_code": "ERROR",
+        "status_code": 200,
         "description": "Main welcome route",
-        "content": "Request failed: HTTPConnectionPool(host='localhost', port=5001): Max retries exceeded with url: /api/ (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=5001): Failed to establish a new connection: [Errno 61] Connection refused\"))"
+        "content": {
+            "message": "Welcome to the Dam Management API!"
+        }
     },
     {
         "url": "http://localhost:5001/api/dams",
-        "status_code": "ERROR",
+        "status_code": 200,
         "description": "List all dams",
-        "content": "Request failed: HTTPConnectionPool(host='localhost', port=5001): Max retries exceeded with url: /api/dams (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=5001): Failed to establish a new connection: [Errno 61] Connection refused\"))"
+        "content": [
+            {
+                "dam_id": "203042",
+                "dam_name": "Toonumbar Dam",
+                "full_volume": 10814,
+                "latitude": -28.602383,
+                "longitude": 152.763769
+            },
+            {
+                "dam_id": "210097",
+                "dam_name": "Glenbawn Dam",
+                "full_volume": 748827,
+                "latitude": -32.064304,
+                "longitude": 150.982007
+            },
+            {
+                "dam_id": "210102",
+                "dam_name": "Lostock Dam",
+                "full_volume": 19736,
+                "latitude": -32.335999,
+                "longitude": 151.440793
+            },
+            {
+                "dam_id": "210117",
+                "dam_name": "Glennies Creek Dam",
+                "full_volume": 282303,
+                "latitude": -32.339259,
+                "longitude": 151.286947
+            },
+            {
+                "dam_id": "212205",
+                "dam_name": "Nepean Dam",
+                "full_volume": 67730,
+                "latitude": -34.335046,
+                "longitude": 150.617666
+            },
+            {
+                "dam_id": "212211",
+                "dam_name": "Avon Dam",
+                "full_volume": 142230,
+                "latitude": -34.350932,
+                "longitude": 150.6405
+            },
+            {
+                "dam_id": "212212",
+                "dam_name": "Wingecarribee Reservoir",
+                "full_volume": 29880,
+                "latitude": -34.540413,
+                "longitude": 150.498916
+            },
+            {
+                "dam_id": "212220",
+                "dam_name": "Cordeaux Dam",
+                "full_volume": 93790,
+                "latitude": -34.336403,
+                "longitude": 150.745918
+            },
+            {
+                "dam_id": "212232",
+                "dam_name": "Cataract Dam",
+                "full_volume": 97190,
+                "latitude": -34.265584,
+                "longitude": 150.803553
+            },
+            {
+                "dam_id": "212243",
+                "dam_name": "Warragamba Dam",
+                "full_volume": 2064680,
+                "latitude": -33.891111,
+                "longitude": 150.591111
+            }
+        ]
     },
     {
         "url": "http://localhost:5001/api/dams/203042",
-        "status_code": "ERROR",
+        "status_code": 200,
         "description": "Get dam by ID",
-        "content": "Request failed: HTTPConnectionPool(host='localhost', port=5001): Max retries exceeded with url: /api/dams/203042 (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=5001): Failed to establish a new connection: [Errno 61] Connection refused\"))"
+        "content": {
+            "dam_id": "203042",
+            "dam_name": "Toonumbar Dam",
+            "full_volume": 10814,
+            "latitude": -28.602383,
+            "longitude": 152.763769
+        }
     },
     {
         "url": "http://localhost:5001/api/latest_data",
-        "status_code": "ERROR",
+        "status_code": 200,
         "description": "List all latest dam data entries",
-        "content": "Request failed: HTTPConnectionPool(host='localhost', port=5001): Max retries exceeded with url: /api/latest_data (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=5001): Failed to establish a new connection: [Errno 61] Connection refused\"))"
+        "content": [
+            {
+                "dam_id": "203042",
+                "dam_name": "Toonumbar Dam",
+                "date": "2026-02-01",
+                "storage_volume": 10979.0,
+                "percentage_full": 101.53,
+                "storage_inflow": 92.0,
+                "storage_release": 66.0
+            },
+            {
+                "dam_id": "210097",
+                "dam_name": "Glenbawn Dam",
+                "date": "2026-02-01",
+                "storage_volume": 734633.0,
+                "percentage_full": 98.1,
+                "storage_inflow": -299.0,
+                "storage_release": 981.0
+            },
+            {
+                "dam_id": "210102",
+                "dam_name": "Lostock Dam",
+                "date": "2026-02-01",
+                "storage_volume": 18075.0,
+                "percentage_full": 91.58,
+                "storage_inflow": 319.0,
+                "storage_release": 170.0
+            },
+            {
+                "dam_id": "210117",
+                "dam_name": "Glennies Creek Dam",
+                "date": "2026-02-01",
+                "storage_volume": 269964.0,
+                "percentage_full": 95.63,
+                "storage_inflow": -90.0,
+                "storage_release": 150.0
+            },
+            {
+                "dam_id": "212205",
+                "dam_name": "Nepean Dam",
+                "date": "2026-02-01",
+                "storage_volume": 67286.0,
+                "percentage_full": 99.34,
+                "storage_inflow": 0.0,
+                "storage_release": 0.0
+            },
+            {
+                "dam_id": "212211",
+                "dam_name": "Avon Dam",
+                "date": "2026-02-01",
+                "storage_volume": 141010.0,
+                "percentage_full": 99.14,
+                "storage_inflow": 0.0,
+                "storage_release": 0.0
+            },
+            {
+                "dam_id": "212212",
+                "dam_name": "Wingecarribee Reservoir",
+                "date": "2026-02-01",
+                "storage_volume": 23667.0,
+                "percentage_full": 79.21,
+                "storage_inflow": 0.0,
+                "storage_release": 0.0
+            },
+            {
+                "dam_id": "212220",
+                "dam_name": "Cordeaux Dam",
+                "date": "2026-02-01",
+                "storage_volume": 93436.0,
+                "percentage_full": 99.62,
+                "storage_inflow": 0.0,
+                "storage_release": 0.0
+            },
+            {
+                "dam_id": "212232",
+                "dam_name": "Cataract Dam",
+                "date": "2026-02-01",
+                "storage_volume": 95074.0,
+                "percentage_full": 97.82,
+                "storage_inflow": 0.0,
+                "storage_release": 0.0
+            },
+            {
+                "dam_id": "212243",
+                "dam_name": "Warragamba Dam",
+                "date": "2026-02-01",
+                "storage_volume": 1938074.0,
+                "percentage_full": 93.87,
+                "storage_inflow": 0.0,
+                "storage_release": 0.0
+            }
+        ]
     },
     {
         "url": "http://localhost:5001/api/latest_data/203042",
-        "status_code": "ERROR",
+        "status_code": 200,
         "description": "Get latest data for a specific dam by ID",
-        "content": "Request failed: HTTPConnectionPool(host='localhost', port=5001): Max retries exceeded with url: /api/latest_data/203042 (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=5001): Failed to establish a new connection: [Errno 61] Connection refused\"))"
+        "content": {
+            "dam_id": "203042",
+            "dam_name": "Toonumbar Dam",
+            "date": "2026-02-01",
+            "storage_volume": 10979.0,
+            "percentage_full": 101.53,
+            "storage_inflow": 92.0,
+            "storage_release": 66.0
+        }
     },
     {
         "url": "http://localhost:5001/api/dam_resources",
-        "status_code": "ERROR",
+        "status_code": 200,
         "description": "List all dam resources",
-        "content": "Request failed: HTTPConnectionPool(host='localhost', port=5001): Max retries exceeded with url: /api/dam_resources (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=5001): Failed to establish a new connection: [Errno 61] Connection refused\"))"
+        "content": [
+            {
+                "resource_id": 1,
+                "dam_id": "203042",
+                "date": "2026-02-01",
+                "storage_volume": 10979.0,
+                "percentage_full": 101.53,
+                "storage_inflow": 92.0,
+                "storage_release": 66.0
+            },
+            {
+                "resource_id": 2,
+                "dam_id": "203042",
+                "date": "2026-01-01",
+                "storage_volume": 10953.0,
+                "percentage_full": 101.29,
+                "storage_inflow": 859.0,
+                "storage_release": 847.8
+            },
+            {
+                "resource_id": 3,
+                "dam_id": "203042",
+                "date": "2025-12-01",
+                "storage_volume": 10894.0,
+                "percentage_full": 100.74,
+                "storage_inflow": 2374.0,
+                "storage_release": 2400.0
+            },
+            {
+                "resource_id": 4,
+                "dam_id": "203042",
+                "date": "2025-11-01",
+                "storage_volume": 10923.0,
+                "percentage_full": 101.01,
+                "storage_inflow": 831.0,
+                "storage_release": 854.0
+            },
+            {
+                "resource_id": 5,
+                "dam_id": "203042",
+                "date": "2025-10-01",
+                "storage_volume": 10933.0,
+                "percentage_full": 101.1,
+                "storage_inflow": 785.0,
+                "storage_release": 796.0
+            },
+            {
+                "resource_id": 6,
+                "dam_id": "203042",
+                "date": "2025-09-01",
+                "storage_volume": 10868.0,
+                "percentage_full": 100.5,
+                "storage_inflow": 1044.0,
+                "storage_release": 1122.0
+            },
+            {
+                "resource_id": 7,
+                "dam_id": "203042",
+                "date": "2025-08-01",
+                "storage_volume": 10916.0,
+                "percentage_full": 100.94,
+                "storage_inflow": 3253.0,
+                "storage_release": 3222.0
+            },
+            {
+                "resource_id": 8,
+                "dam_id": "203042",
+                "date": "2025-07-01",
+                "storage_volume": 10945.0,
+                "percentage_full": 101.21,
+                "storage_inflow": 4435.0,
+                "storage_release": 3548.0
+            },
+            {
+                "resource_id": 9,
+                "dam_id": "203042",
+                "date": "2025-06-01",
+                "storage_volume": 11021.0,
+                "percentage_full": 101.91,
+                "storage_inflow": 4453.0,
+                "storage_release": 4572.0
+            },
+            {
+                "resource_id": 10,
+                "dam_id": "203042",
+                "date": "2025-05-01",
+                "storage_volume": 11129.0,
+                "percentage_full": 102.91,
+                "storage_inflow": 21067.0,
+                "storage_release": 20961.0
+            }
+        ]
     },
     {
         "url": "http://localhost:5001/api/dam_resources/1",
-        "status_code": "ERROR",
+        "status_code": 200,
         "description": "Get dam resource by ID",
-        "content": "Request failed: HTTPConnectionPool(host='localhost', port=5001): Max retries exceeded with url: /api/dam_resources/1 (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=5001): Failed to establish a new connection: [Errno 61] Connection refused\"))"
+        "content": {
+            "resource_id": 1,
+            "dam_id": "203042",
+            "date": "2026-02-01",
+            "storage_volume": 10979.0,
+            "percentage_full": 101.53,
+            "storage_inflow": 92.0,
+            "storage_release": 66.0
+        }
     },
     {
         "url": "http://localhost:5001/api/specific_dam_analysis",
-        "status_code": "ERROR",
+        "status_code": 200,
         "description": "List all specific dam analyses",
-        "content": "Request failed: HTTPConnectionPool(host='localhost', port=5001): Max retries exceeded with url: /api/specific_dam_analysis (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=5001): Failed to establish a new connection: [Errno 61] Connection refused\"))"
+        "content": [
+            {
+                "dam_id": "203042",
+                "analysis_date": "2026-01-31",
+                "avg_storage_volume_12_months": 10961.077,
+                "avg_storage_volume_5_years": 10823.117,
+                "avg_storage_volume_10_years": 9934.992,
+                "avg_percentage_full_12_months": 101.36,
+                "avg_percentage_full_5_years": 100.08,
+                "avg_percentage_full_10_years": 91.87,
+                "avg_storage_inflow_12_months": 6772.385,
+                "avg_storage_inflow_5_years": 5514.451,
+                "avg_storage_inflow_10_years": 3668.905,
+                "avg_storage_release_12_months": 6778.985,
+                "avg_storage_release_5_years": 5555.156,
+                "avg_storage_release_10_years": 3549.407
+            },
+            {
+                "dam_id": "210097",
+                "analysis_date": "2026-01-31",
+                "avg_storage_volume_12_months": 756068.0,
+                "avg_storage_volume_5_years": 681934.209,
+                "avg_storage_volume_10_years": 590777.505,
+                "avg_percentage_full_12_months": 100.97,
+                "avg_percentage_full_5_years": 91.07,
+                "avg_percentage_full_10_years": 78.89,
+                "avg_storage_inflow_12_months": 26321.123,
+                "avg_storage_inflow_5_years": 16849.713,
+                "avg_storage_inflow_10_years": 10240.833,
+                "avg_storage_release_12_months": 21589.308,
+                "avg_storage_release_5_years": 10448.659,
+                "avg_storage_release_10_years": 9248.455
+            },
+            {
+                "dam_id": "210102",
+                "analysis_date": "2026-01-31",
+                "avg_storage_volume_12_months": 19487.462,
+                "avg_storage_volume_5_years": 19645.781,
+                "avg_storage_volume_10_years": 18843.854,
+                "avg_percentage_full_12_months": 98.74,
+                "avg_percentage_full_5_years": 99.54,
+                "avg_percentage_full_10_years": 95.48,
+                "avg_storage_inflow_12_months": 25238.0,
+                "avg_storage_inflow_5_years": 17400.295,
+                "avg_storage_inflow_10_years": 10677.415,
+                "avg_storage_release_12_months": 25424.385,
+                "avg_storage_release_5_years": 17541.205,
+                "avg_storage_release_10_years": 10743.239
+            },
+            {
+                "dam_id": "210117",
+                "analysis_date": "2026-01-31",
+                "avg_storage_volume_12_months": 285383.923,
+                "avg_storage_volume_5_years": 254106.0,
+                "avg_storage_volume_10_years": 217959.812,
+                "avg_percentage_full_12_months": 101.09,
+                "avg_percentage_full_5_years": 90.01,
+                "avg_percentage_full_10_years": 77.21,
+                "avg_storage_inflow_12_months": 9683.308,
+                "avg_storage_inflow_5_years": 4293.428,
+                "avg_storage_inflow_10_years": 2227.596,
+                "avg_storage_release_12_months": 10125.692,
+                "avg_storage_release_5_years": 3710.787,
+                "avg_storage_release_10_years": 2958.86
+            },
+            {
+                "dam_id": "212205",
+                "analysis_date": "2026-01-31",
+                "avg_storage_volume_12_months": 64769.077,
+                "avg_storage_volume_5_years": 61691.659,
+                "avg_storage_volume_10_years": 55652.679,
+                "avg_percentage_full_12_months": 95.63,
+                "avg_percentage_full_5_years": 91.08,
+                "avg_percentage_full_10_years": 82.17,
+                "avg_storage_inflow_12_months": 0.0,
+                "avg_storage_inflow_5_years": 0.0,
+                "avg_storage_inflow_10_years": 0.0,
+                "avg_storage_release_12_months": 0.0,
+                "avg_storage_release_5_years": 0.0,
+                "avg_storage_release_10_years": 0.0
+            },
+            {
+                "dam_id": "212211",
+                "analysis_date": "2026-01-31",
+                "avg_storage_volume_12_months": 136681.615,
+                "avg_storage_volume_5_years": 133550.139,
+                "avg_storage_volume_10_years": 122271.343,
+                "avg_percentage_full_12_months": 96.1,
+                "avg_percentage_full_5_years": 93.9,
+                "avg_percentage_full_10_years": 85.97,
+                "avg_storage_inflow_12_months": 0.0,
+                "avg_storage_inflow_5_years": 0.0,
+                "avg_storage_inflow_10_years": 0.0,
+                "avg_storage_release_12_months": 0.0,
+                "avg_storage_release_5_years": 0.0,
+                "avg_storage_release_10_years": 0.0
+            },
+            {
+                "dam_id": "212212",
+                "analysis_date": "2026-01-31",
+                "avg_storage_volume_12_months": 24327.538,
+                "avg_storage_volume_5_years": 22246.898,
+                "avg_storage_volume_10_years": 19917.552,
+                "avg_percentage_full_12_months": 81.42,
+                "avg_percentage_full_5_years": 74.45,
+                "avg_percentage_full_10_years": 66.66,
+                "avg_storage_inflow_12_months": 0.0,
+                "avg_storage_inflow_5_years": 0.0,
+                "avg_storage_inflow_10_years": 0.0,
+                "avg_storage_release_12_months": 0.0,
+                "avg_storage_release_5_years": 0.0,
+                "avg_storage_release_10_years": 0.0
+            },
+            {
+                "dam_id": "212220",
+                "analysis_date": "2026-01-31",
+                "avg_storage_volume_12_months": 88308.538,
+                "avg_storage_volume_5_years": 84521.113,
+                "avg_storage_volume_10_years": 73657.189,
+                "avg_percentage_full_12_months": 94.16,
+                "avg_percentage_full_5_years": 90.12,
+                "avg_percentage_full_10_years": 78.53,
+                "avg_storage_inflow_12_months": 0.0,
+                "avg_storage_inflow_5_years": 0.0,
+                "avg_storage_inflow_10_years": 0.0,
+                "avg_storage_release_12_months": 0.0,
+                "avg_storage_release_5_years": 0.0,
+                "avg_storage_release_10_years": 0.0
+            },
+            {
+                "dam_id": "212232",
+                "analysis_date": "2026-01-31",
+                "avg_storage_volume_12_months": 91692.615,
+                "avg_storage_volume_5_years": 80568.871,
+                "avg_storage_volume_10_years": 71222.728,
+                "avg_percentage_full_12_months": 94.34,
+                "avg_percentage_full_5_years": 82.9,
+                "avg_percentage_full_10_years": 73.28,
+                "avg_storage_inflow_12_months": 0.0,
+                "avg_storage_inflow_5_years": 0.0,
+                "avg_storage_inflow_10_years": 0.0,
+                "avg_storage_release_12_months": 0.0,
+                "avg_storage_release_5_years": 0.0,
+                "avg_storage_release_10_years": 0.0
+            },
+            {
+                "dam_id": "212243",
+                "analysis_date": "2026-01-31",
+                "avg_storage_volume_12_months": 1987584.769,
+                "avg_storage_volume_5_years": 1991293.157,
+                "avg_storage_volume_10_years": 1797280.997,
+                "avg_percentage_full_12_months": 96.27,
+                "avg_percentage_full_5_years": 96.44,
+                "avg_percentage_full_10_years": 87.05,
+                "avg_storage_inflow_12_months": 0.0,
+                "avg_storage_inflow_5_years": 0.0,
+                "avg_storage_inflow_10_years": 0.0,
+                "avg_storage_release_12_months": 0.0,
+                "avg_storage_release_5_years": 0.0,
+                "avg_storage_release_10_years": 0.0
+            }
+        ]
     },
     {
         "url": "http://localhost:5001/api/specific_dam_analysis/203042",
-        "status_code": "ERROR",
+        "status_code": 200,
         "description": "Get specific dam analyses by dam ID",
-        "content": "Request failed: HTTPConnectionPool(host='localhost', port=5001): Max retries exceeded with url: /api/specific_dam_analysis/203042 (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=5001): Failed to establish a new connection: [Errno 61] Connection refused\"))"
+        "content": [
+            {
+                "dam_id": "203042",
+                "analysis_date": "2026-01-31",
+                "avg_storage_volume_12_months": 10961.077,
+                "avg_storage_volume_5_years": 10823.117,
+                "avg_storage_volume_10_years": 9934.992,
+                "avg_percentage_full_12_months": 101.36,
+                "avg_percentage_full_5_years": 100.08,
+                "avg_percentage_full_10_years": 91.87,
+                "avg_storage_inflow_12_months": 6772.385,
+                "avg_storage_inflow_5_years": 5514.451,
+                "avg_storage_inflow_10_years": 3668.905,
+                "avg_storage_release_12_months": 6778.985,
+                "avg_storage_release_5_years": 5555.156,
+                "avg_storage_release_10_years": 3549.407
+            }
+        ]
     },
     {
         "url": "http://localhost:5001/api/overall_dam_analysis",
-        "status_code": "ERROR",
+        "status_code": 200,
         "description": "List all overall dam analyses",
-        "content": "Request failed: HTTPConnectionPool(host='localhost', port=5001): Max retries exceeded with url: /api/overall_dam_analysis (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=5001): Failed to establish a new connection: [Errno 61] Connection refused\"))"
+        "content": [
+            {
+                "analysis_date": "2026-01-31",
+                "avg_storage_volume_12_months": 285899.164,
+                "avg_storage_volume_5_years": 361587.357,
+                "avg_storage_volume_10_years": 293878.021,
+                "avg_percentage_full_12_months": 79.99,
+                "avg_percentage_full_5_years": 86.28,
+                "avg_percentage_full_10_years": 72.75,
+                "avg_storage_inflow_12_months": 10787.147,
+                "avg_storage_inflow_5_years": 17989.072,
+                "avg_storage_inflow_10_years": 13856.297,
+                "avg_storage_release_12_months": 10300.151,
+                "avg_storage_release_5_years": 17650.067,
+                "avg_storage_release_10_years": 13271.383
+            }
+        ]
     },
     {
         "url": "http://localhost:5001/api/overall_dam_analysis/2023-01-01",
-        "status_code": "ERROR",
+        "status_code": 404,
         "description": "Get overall dam analysis by date",
-        "content": "Request failed: HTTPConnectionPool(host='localhost', port=5001): Max retries exceeded with url: /api/overall_dam_analysis/2023-01-01 (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=5001): Failed to establish a new connection: [Errno 61] Connection refused\"))"
+        "content": "No data found"
     },
     {
         "url": "http://localhost:5001/api/dam_groups",
-        "status_code": "ERROR",
+        "status_code": 200,
         "description": "List all dam groups",
-        "content": "Request failed: HTTPConnectionPool(host='localhost', port=5001): Max retries exceeded with url: /api/dam_groups (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=5001): Failed to establish a new connection: [Errno 61] Connection refused\"))"
+        "content": [
+            {
+                "group_name": "greatest_released"
+            },
+            {
+                "group_name": "large_dams"
+            },
+            {
+                "group_name": "popular_dams"
+            },
+            {
+                "group_name": "small_dams"
+            },
+            {
+                "group_name": "sydney_dams"
+            }
+        ]
     },
     {
         "url": "http://localhost:5001/api/dam_groups/small_dams",
-        "status_code": "ERROR",
+        "status_code": 200,
         "description": "Get dam group by name",
-        "content": "Request failed: HTTPConnectionPool(host='localhost', port=5001): Max retries exceeded with url: /api/dam_groups/small_dams (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=5001): Failed to establish a new connection: [Errno 61] Connection refused\"))"
+        "content": {
+            "group_name": "small_dams"
+        }
     },
     {
         "url": "http://localhost:5001/api/dam_group_members",
-        "status_code": "ERROR",
+        "status_code": 200,
         "description": "List all dam group members",
-        "content": "Request failed: HTTPConnectionPool(host='localhost', port=5001): Max retries exceeded with url: /api/dam_group_members (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=5001): Failed to establish a new connection: [Errno 61] Connection refused\"))"
+        "content": [
+            {
+                "group_name": "small_dams",
+                "dam_id": "203042"
+            },
+            {
+                "group_name": "greatest_released",
+                "dam_id": "210097"
+            },
+            {
+                "group_name": "large_dams",
+                "dam_id": "210097"
+            },
+            {
+                "group_name": "small_dams",
+                "dam_id": "210102"
+            },
+            {
+                "group_name": "greatest_released",
+                "dam_id": "210117"
+            },
+            {
+                "group_name": "popular_dams",
+                "dam_id": "212205"
+            },
+            {
+                "group_name": "sydney_dams",
+                "dam_id": "212205"
+            },
+            {
+                "group_name": "popular_dams",
+                "dam_id": "212211"
+            },
+            {
+                "group_name": "sydney_dams",
+                "dam_id": "212211"
+            },
+            {
+                "group_name": "sydney_dams",
+                "dam_id": "212212"
+            }
+        ]
     },
     {
         "url": "http://localhost:5001/api/dam_group_members/small_dams",
-        "status_code": "ERROR",
+        "status_code": 200,
         "description": "Get members by group name",
-        "content": "Request failed: HTTPConnectionPool(host='localhost', port=5001): Max retries exceeded with url: /api/dam_group_members/small_dams (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=5001): Failed to establish a new connection: [Errno 61] Connection refused\"))"
+        "content": [
+            {
+                "group_name": "small_dams",
+                "dam_id": "203042"
+            },
+            {
+                "group_name": "small_dams",
+                "dam_id": "210102"
+            },
+            {
+                "group_name": "small_dams",
+                "dam_id": "215212"
+            },
+            {
+                "group_name": "small_dams",
+                "dam_id": "215235"
+            },
+            {
+                "group_name": "small_dams",
+                "dam_id": "219027"
+            },
+            {
+                "group_name": "small_dams",
+                "dam_id": "219033"
+            },
+            {
+                "group_name": "small_dams",
+                "dam_id": "412107"
+            },
+            {
+                "group_name": "small_dams",
+                "dam_id": "42510037"
+            }
+        ]
     }
 ]

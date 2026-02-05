@@ -79,19 +79,19 @@ def seed_minimal(reset_db, db):
 
     spec = SpecificDamAnalysis(
         dam_id="WORONOR", analysis_date=date(2025, 8, 1),
-        avg_storage_volume_12_months=480.000, avg_storage_volume_5_years=470.000, avg_storage_volume_20_years=460.000,
-        avg_percentage_full_12_months=48.00, avg_percentage_full_5_years=47.00, avg_percentage_full_20_years=46.00,
-        avg_storage_inflow_12_months=1.2, avg_storage_inflow_5_years=1.1, avg_storage_inflow_20_years=1.0,
-        avg_storage_release_12_months=1.0, avg_storage_release_5_years=0.9, avg_storage_release_20_years=0.8
+        avg_storage_volume_12_months=480.000, avg_storage_volume_5_years=470.000, avg_storage_volume_10_years=460.000,
+        avg_percentage_full_12_months=48.00, avg_percentage_full_5_years=47.00, avg_percentage_full_10_years=46.00,
+        avg_storage_inflow_12_months=1.2, avg_storage_inflow_5_years=1.1, avg_storage_inflow_10_years=1.0,
+        avg_storage_release_12_months=1.0, avg_storage_release_5_years=0.9, avg_storage_release_10_years=0.8
     )
     db.session.add(spec)
 
     overall = OverallDamAnalysis(
         analysis_date=date(2025, 8, 1),
-        avg_storage_volume_12_months=480.000, avg_storage_volume_5_years=470.000, avg_storage_volume_20_years=460.000,
-        avg_percentage_full_12_months=48.00, avg_percentage_full_5_years=47.00, avg_percentage_full_20_years=46.00,
-        avg_storage_inflow_12_months=1.2, avg_storage_inflow_5_years=1.1, avg_storage_inflow_20_years=1.0,
-        avg_storage_release_12_months=1.0, avg_storage_release_5_years=0.9, avg_storage_release_20_years=0.8
+        avg_storage_volume_12_months=480.000, avg_storage_volume_5_years=470.000, avg_storage_volume_10_years=460.000,
+        avg_percentage_full_12_months=48.00, avg_percentage_full_5_years=47.00, avg_percentage_full_10_years=46.00,
+        avg_storage_inflow_12_months=1.2, avg_storage_inflow_5_years=1.1, avg_storage_inflow_10_years=1.0,
+        avg_storage_release_12_months=1.0, avg_storage_release_5_years=0.9, avg_storage_release_10_years=0.8
     )
     db.session.add(overall)
 

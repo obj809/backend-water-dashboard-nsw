@@ -16,16 +16,16 @@ specific_dam_analysis_model = specific_dam_analysis_bp.model('SpecificDamAnalysi
     'analysis_date': ISODate(required=True, description='ISO date'),
     'avg_storage_volume_12_months': fields.Float(allow_null=True),
     'avg_storage_volume_5_years': fields.Float(allow_null=True),
-    'avg_storage_volume_20_years': fields.Float(allow_null=True),
+    'avg_storage_volume_10_years': fields.Float(allow_null=True),
     'avg_percentage_full_12_months': fields.Float(allow_null=True),
     'avg_percentage_full_5_years': fields.Float(allow_null=True),
-    'avg_percentage_full_20_years': fields.Float(allow_null=True),
+    'avg_percentage_full_10_years': fields.Float(allow_null=True),
     'avg_storage_inflow_12_months': fields.Float(allow_null=True),
     'avg_storage_inflow_5_years': fields.Float(allow_null=True),
-    'avg_storage_inflow_20_years': fields.Float(allow_null=True),
+    'avg_storage_inflow_10_years': fields.Float(allow_null=True),
     'avg_storage_release_12_months': fields.Float(allow_null=True),
     'avg_storage_release_5_years': fields.Float(allow_null=True),
-    'avg_storage_release_20_years': fields.Float(allow_null=True),
+    'avg_storage_release_10_years': fields.Float(allow_null=True),
 })
 
 @specific_dam_analysis_bp.route('/', endpoint='specific_dam_analysis_list')

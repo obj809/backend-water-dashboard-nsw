@@ -45,16 +45,16 @@ class SpecificDamAnalysis(db.Model):
     analysis_date = db.Column(db.Date, primary_key=True)
     avg_storage_volume_12_months = db.Column(db.Numeric(10, 3))
     avg_storage_volume_5_years = db.Column(db.Numeric(10, 3))
-    avg_storage_volume_20_years = db.Column(db.Numeric(10, 3))
+    avg_storage_volume_10_years = db.Column(db.Numeric(10, 3))
     avg_percentage_full_12_months = db.Column(db.Numeric(6, 2))
     avg_percentage_full_5_years = db.Column(db.Numeric(6, 2))
-    avg_percentage_full_20_years = db.Column(db.Numeric(6, 2))
+    avg_percentage_full_10_years = db.Column(db.Numeric(6, 2))
     avg_storage_inflow_12_months = db.Column(db.Numeric(10, 3))
     avg_storage_inflow_5_years = db.Column(db.Numeric(10, 3))
-    avg_storage_inflow_20_years = db.Column(db.Numeric(10, 3))
+    avg_storage_inflow_10_years = db.Column(db.Numeric(10, 3))
     avg_storage_release_12_months = db.Column(db.Numeric(10, 3))
     avg_storage_release_5_years = db.Column(db.Numeric(10, 3))
-    avg_storage_release_20_years = db.Column(db.Numeric(10, 3))
+    avg_storage_release_10_years = db.Column(db.Numeric(10, 3))
 
 
 class OverallDamAnalysis(db.Model):
@@ -62,16 +62,16 @@ class OverallDamAnalysis(db.Model):
     analysis_date = db.Column(db.Date, primary_key=True)
     avg_storage_volume_12_months = db.Column(db.Numeric(10, 3))
     avg_storage_volume_5_years = db.Column(db.Numeric(10, 3))
-    avg_storage_volume_20_years = db.Column(db.Numeric(10, 3))
+    avg_storage_volume_10_years = db.Column(db.Numeric(10, 3))
     avg_percentage_full_12_months = db.Column(db.Numeric(6, 2))
     avg_percentage_full_5_years = db.Column(db.Numeric(6, 2))
-    avg_percentage_full_20_years = db.Column(db.Numeric(6, 2))
+    avg_percentage_full_10_years = db.Column(db.Numeric(6, 2))
     avg_storage_inflow_12_months = db.Column(db.Numeric(10, 3))
     avg_storage_inflow_5_years = db.Column(db.Numeric(10, 3))
-    avg_storage_inflow_20_years = db.Column(db.Numeric(10, 3))
+    avg_storage_inflow_10_years = db.Column(db.Numeric(10, 3))
     avg_storage_release_12_months = db.Column(db.Numeric(10, 3))
     avg_storage_release_5_years = db.Column(db.Numeric(10, 3))
-    avg_storage_release_20_years = db.Column(db.Numeric(10, 3))
+    avg_storage_release_10_years = db.Column(db.Numeric(10, 3))
 
 
 class DamGroup(db.Model):
