@@ -1,10 +1,12 @@
-# scripts/test_api_endpoints.py
+# scripts/test_api_endpoints_preview.py
+# Same as test_api_endpoints.py but truncates list responses to 10 items per endpoint.
 
 import requests
 import os
 import json
 
 BASE_URL = "http://localhost:5001/api"
+PREVIEW_LIMIT = 10
 
 ENDPOINTS = [
     {"path": "/", "method": "GET", "description": "Main welcome route"},
@@ -46,6 +48,8 @@ def test_endpoint(endpoint, base_url=BASE_URL):
         if response.status_code == 200:
             try:
                 content = response.json()
+                if isinstance(content, list):
+                    content = content[:PREVIEW_LIMIT]
                 return {"url": url, "status_code": 200, "description": description, "content": content}
             except json.JSONDecodeError:
                 return {"url": url, "status_code": 200, "description": description, "content": "Response is not valid JSON"}
@@ -68,11 +72,11 @@ def main():
         result = test_endpoint(endpoint)
         results.append(result)
 
-    output_file = os.path.join(os.path.dirname(__file__), "api_test_results.json")
+    output_file = os.path.join(os.path.dirname(__file__), "api_test_results_preview.json")
     with open(output_file, "w") as f:
         json.dump(results, f, indent=4)
 
-    print(f"API test results saved to {output_file}")
+    print(f"API preview results saved to {output_file}")
 
 if __name__ == "__main__":
     main()
