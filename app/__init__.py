@@ -24,12 +24,15 @@ def _get_cors_origins() -> list[str]:
     Notes:
     - Origins should NOT include trailing slashes.
     - Comma-separated list.
+    - In DEBUG mode, defaults to localhost origins if not set.
     """
     raw = os.getenv("CORS_ORIGINS", "").strip()
 
     origins = [o.strip().rstrip("/") for o in raw.split(",") if o.strip()]
 
     if not origins:
+        if os.getenv("DEBUG", "False") == "True":
+            return ["http://localhost:5173", "http://127.0.0.1:5173"]
         raise RuntimeError(
             "CORS_ORIGINS environment variable must be set to a comma-separated list of origins "
             "(e.g. https://frontend-water-dashboard-nsw.netlify.app,http://localhost:5173)"

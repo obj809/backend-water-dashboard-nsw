@@ -13,6 +13,7 @@ TEST_DB_URI = "sqlite:///:memory:"
 def app():
     os.environ["SQLALCHEMY_DATABASE_URI"] = TEST_DB_URI
     os.environ["DEBUG"] = "False"
+    os.environ["CORS_ORIGINS"] = "http://localhost:5173"
 
     import app.config as app_config
     importlib.reload(app_config)
