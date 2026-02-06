@@ -2,13 +2,6 @@
 venv
 CLAUDE.md
 
-# Oracle wallet files (sensitive credentials)
-*wallet*/
-*.sso
-*.p12
-cwallet.sso
-ewallet.p12
-
 # Python cache files
 __pycache__/
 *.py[cod]

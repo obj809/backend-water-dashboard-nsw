@@ -25,7 +25,7 @@ def check_db_connection():
         print("Attempting to connect...")
         with engine.connect() as connection:
             print("Executing test query...")
-            connection.execute(text("SELECT 1 FROM DUAL" if provider == "oracle" else "SELECT 1"))
+            connection.execute(text("SELECT 1"))
             print("✓ Database connection successful!")
     except Exception as e:
         print("✗ Database connection failed!")

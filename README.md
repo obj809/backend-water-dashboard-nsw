@@ -34,7 +34,6 @@ Build a robust REST API for NSW dam and water resource data that supports real-t
 - PostgreSQL / MySQL
 - pytest
 - Gunicorn
-- Render
 
 ## How To Use
 
@@ -81,7 +80,6 @@ python run.py
 
 - Large dataset queries without pagination may cause performance issues
 - Fixed numeric precision - Numeric columns have fixed precision (e.g., 10,3 for volumes) which may truncate extremely large values
-- Render deployment has a cold start - Initial page load may be slow after periods of inactivity
 
 ## Challenges
 
