@@ -16,6 +16,7 @@ python run.py
 
 # Scripts
 
+
 python scripts/db_connection_check.py
 
 python scripts/data_collection_and_export.py

@@ -45328,7 +45328,7 @@
         "url": "http://localhost:5001/api/specific_dam_analysis/203042/2023-01-01",
         "status_code": 404,
         "description": "Get specific dam analysis by dam ID and date",
-        "content": "No data found"
+        "content": null
     },
     {
         "url": "http://localhost:5001/api/overall_dam_analysis",
@@ -45356,7 +45356,7 @@
         "url": "http://localhost:5001/api/overall_dam_analysis/2023-01-01",
         "status_code": 404,
         "description": "Get overall dam analysis by date",
-        "content": "No data found"
+        "content": null
     },
     {
         "url": "http://localhost:5001/api/dam_groups",
