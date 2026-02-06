@@ -92,6 +92,7 @@ def create_app() -> Flask:
     from .routes.overall_dam_analysis import overall_dam_analysis_bp
     from .routes.dam_groups import dam_groups_bp
     from .routes.dam_group_members import dam_group_members_bp
+    from .routes.metadata import metadata_bp
 
     api.add_namespace(main_bp, path="/api")
     api.add_namespace(dams_bp, path="/api/dams")
@@ -101,5 +102,6 @@ def create_app() -> Flask:
     api.add_namespace(overall_dam_analysis_bp, path="/api/overall_dam_analysis")
     api.add_namespace(dam_groups_bp, path="/api/dam_groups")
     api.add_namespace(dam_group_members_bp, path="/api/dam_group_members")
+    api.add_namespace(metadata_bp, path="/api/metadata")
 
     return app
