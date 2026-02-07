@@ -16,7 +16,6 @@ python run.py
 
 # Scripts
 
-
 python scripts/db_connection_check.py
 
 python scripts/data_collection_and_export.py
@@ -66,3 +65,5 @@ docker compose up -d --build
 docker compose down
 
 docker compose up -d
+
+docker-compose logs -f --tail=100

@@ -1,4 +1,33 @@
+# Core Flask Framework
+Flask==3.1.0
+Flask-RESTX==1.3.0
+Flask-SQLAlchemy==3.1.1
+Flask-Migrate==4.1.0
+flask-cors==6.0.1
+
+# Database Drivers
+mysql-connector-python==9.5.0
+PyMySQL==1.1.1
+psycopg2-binary==2.9.11
+
+# SQLAlchemy and Database Tools
+SQLAlchemy==2.0.36
 alembic==1.18.1
+
+# Production Server
+gunicorn==23.0.0
+
+# Testing
+pytest==8.4.1
+pytest-cov==6.2.1
+coverage==7.10.5
+
+# Utilities
+python-dotenv==1.0.1
+requests==2.32.3
+pytz==2025.2
+
+# Dependencies (installed automatically but listed for reproducibility)
 aniso8601==10.0.1
 attrs==25.4.0
 blinker==1.9.0
@@ -6,13 +35,7 @@ certifi==2026.1.4
 cffi==2.0.0
 charset-normalizer==3.4.4
 click==8.1.7
-coverage==7.10.5
 cryptography==46.0.4
-Flask==3.1.0
-flask-cors==6.0.1
-Flask-Migrate==4.1.0
-flask-restx==1.3.0
-Flask-SQLAlchemy==3.1.1
 idna==3.11
 importlib_resources==6.5.2
 iniconfig==2.1.0
@@ -22,22 +45,12 @@ jsonschema==4.26.0
 jsonschema-specifications==2025.9.1
 Mako==1.3.10
 MarkupSafe==3.0.2
-mysql-connector-python==9.5.0
 packaging==25.0
 pluggy==1.6.0
 pycparser==3.0
 Pygments==2.19.2
-PyMySQL==1.1.1
-pytest==8.4.1
-pytest-cov==6.2.1
-python-dotenv==1.0.1
-pytz==2025.2
 referencing==0.37.0
-requests==2.32.3
 rpds-py==0.30.0
-SQLAlchemy==2.0.36
-typing_extensions==4.12.2
+typing_extensions==4.15.0
 urllib3==2.6.3
 Werkzeug==3.1.3
-psycopg2-binary==2.9.11
-gunicorn==23.0.0
