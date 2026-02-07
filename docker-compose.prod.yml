@@ -6,4 +6,10 @@
         - "5001:5001"                                                                                                                                                                                                               
       env_file:                                                                                                                                                                                                                     
         - .env                                                                                                                                                                                                                      
-      restart: unless-stopped       
+      restart: unless-stopped                                                                                                                                                                                                       
+      networks:                                                                                                                                                                                                                     
+        - npm_default                                                                                                                                                                                                               
+                                                                                                                                                                                                                                    
+  networks:                                                                                                                                                                                                                         
+    npm_default:                                                                                                                                                                                                                    
+      external: true
