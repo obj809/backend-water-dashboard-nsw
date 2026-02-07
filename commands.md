@@ -56,14 +56,8 @@ pytest tests/test_specific_dam_analysis_routes.py
 
 # Docker
 
-docker compose up --build
-
+# Local
 docker compose up -d --build
 
-# VPS Docker
-
-docker compose down
-
-docker compose up -d
-
-docker-compose logs -f --tail=100
+# VPS
+docker compose -f docker-compose.prod.yml up -d --build
