@@ -2,14 +2,14 @@
     api:                                                                                                                                                                                                                            
       build: .                                                                                                                                                                                                                      
       container_name: dams-api                                                                                                                                                                                                      
-      ports:                                                                                                                                                                                                                        
-        - "5001:5001"                                                                                                                                                                                                               
+      expose:
+        - "5001"                                                                                                                                                                                                                     
       env_file:                                                                                                                                                                                                                     
         - .env                                                                                                                                                                                                                      
       restart: unless-stopped                                                                                                                                                                                                       
       networks:                                                                                                                                                                                                                     
-        - npm_default                                                                                                                                                                                                               
+        - webnet                                                                                                                                                                                                             
                                                                                                                                                                                                                                     
   networks:                                                                                                                                                                                                                         
-    npm_default:                                                                                                                                                                                                                    
+    webnet:                                                                                                                                                                                                                 
       external: true
